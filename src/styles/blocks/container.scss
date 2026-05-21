@@ -1,0 +1,16 @@
+.container {
+	max-width: 1552px;
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	transition: 0.3s ease;
+
+	@include max(ti) {
+		padding: 0 24px;
+	}
+
+	&--small {
+		max-width: 1010px;
+	}
+}

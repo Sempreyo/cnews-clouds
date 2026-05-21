@@ -1,0 +1,61 @@
+.clients {
+	$parent: &;
+
+	display: flex;
+	justify-content: space-between;
+	max-width: 220px;
+
+	@include max(tl) {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	&__left {
+		@include max(tl) {
+			width: 100%;
+		}
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 13px;
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	&__items {
+		padding-right: 30px;
+		margin-top: 26px;
+	}
+
+	&__item {
+		& + #{$parent}__item {
+			border-top: 1px solid $white;
+			padding-top: 20px;
+			margin-top: 15px;
+		}
+	}
+
+	&__bar {
+		position: relative;
+	}
+
+	&__rail {
+		width: 7px;
+		height: 100%;
+		background-color: $color-scrollbar;
+		border-radius: 20px;
+	}
+
+	&__thumb {
+		position: absolute;
+		top: 59px;
+		left: -12px;
+	}
+
+	&__thumb-icon {
+		width: 27px;
+		height: 24px;
+		transform: rotate(90deg);
+	}
+}

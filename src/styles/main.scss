@@ -1,0 +1,26 @@
+/* Libraries */
+@import "../../node_modules/swiper/swiper-bundle.css";
+
+/* Base */
+@import "base/var";
+@import "base/mixin";
+@import "base/fonts";
+@import "base/animation";
+@import "base/global";
+
+/* Blocks */
+@import "blocks/container";
+@import "blocks/button";
+@import "blocks/button-up";
+@import "blocks/title";
+@import "blocks/hero";
+@import "blocks/tabs";
+@import "blocks/dictionary";
+@import "blocks/client-card";
+@import "blocks/clients";
+@import "blocks/timeline-step";
+@import "blocks/timeline";
+@import "blocks/progress";
+@import "blocks/trends-card";
+@import "blocks/trends";
+@import "blocks/popup";

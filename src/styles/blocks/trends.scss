@@ -1,0 +1,26 @@
+.trends {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	gap: 28px;
+
+	&__title {
+		max-width: 125px;
+		font-weight: 700;
+		font-size: 19px;
+		text-transform: uppercase;
+	}
+
+	&__icon {
+		width: 125px;
+		height: 15px;
+		margin-top: 10px;
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: flex-end;
+		gap: 27px;
+	}
+}

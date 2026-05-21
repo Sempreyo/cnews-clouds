@@ -1,0 +1,51 @@
+.progress {
+	display: flex;
+	justify-content: space-around;
+
+	&__line {
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		background-color: $color-primary;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: -4px;
+			content: "";
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background-color: $color-primary;
+		}
+
+		&::before {
+			left: 0;
+		}
+
+		&::after {
+			right: 0;
+		}
+	}
+
+	span {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		color: $color-primary;
+		font-family: $secondFont;
+		font-size: 16px;
+		text-align: center;
+		text-transform: uppercase;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 26px;
+			height: 25px;
+			background-image: url('data:image/svg+xml,<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.10639 2.18475C10.7882 -0.728307 14.9929 -0.728306 16.6747 2.18475L25.1891 16.9321C26.871 19.8452 24.7687 23.4865 21.405 23.4865H4.37618C1.01247 23.4865 -1.08985 19.8452 0.592005 16.9321L9.10639 2.18475Z" fill="%23FF7300"/></svg>');
+			background-repeat: no-repeat;
+		}
+	}
+}

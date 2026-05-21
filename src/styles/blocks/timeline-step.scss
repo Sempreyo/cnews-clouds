@@ -1,0 +1,429 @@
+.timeline-step {
+	$parent: &;
+
+	display: flex;
+	flex-direction: column;
+	gap: 23px;
+
+	&__top {
+		display: flex;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	&__year {
+		position: relative;
+		background-color: $white;
+		padding: 10px;
+		border-radius: 20px;
+		color: $color-primary;
+		font-weight: 700;
+		font-size: 12px;
+		text-align: center;
+		white-space: nowrap;
+	}
+
+	&__line {
+		position: absolute;
+		top: 100%;
+		left: calc(50% - 1px);
+		width: 1px;
+		background-color: $white;
+
+		&::before,
+		&::after {
+			position: absolute;
+			left: -1.5px;
+			content: "";
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background-color: $white;
+		}
+
+		&::before {
+			top: -2px;
+		}
+
+		&::after {
+			bottom: -2px;
+		}
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+
+	&__card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 85px;
+		background-color: rgba($white, 0.8);
+		border-radius: 18px;
+	}
+
+	&__text {
+		padding: 37px 26px 26px;
+		font-family: $secondFont;
+		color: $black;
+		font-size: 13px;
+		line-height: 1.15;
+	}
+
+	&__image-wrapper {
+		padding: 11px 17px 15px;
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0 0 13px 13px;
+	}
+
+	&--full-image {
+		#{$parent} {
+			&__image-wrapper {
+				height: 100%;
+				padding: 0;
+			}
+
+			&__image {
+				border-radius: 13px;
+			}
+		}
+	}
+
+	&--pointer {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "";
+			width: 90px;
+			height: 70px;
+			border-radius: 20px;
+			background-color: rgba($white, 0.8);
+		}
+	}
+
+	&--1 {
+		margin-left: -30px;
+
+		#{$parent} {
+			&__card {
+				width: 715px;
+				gap: 130px;
+			}
+		}
+	}
+
+	&--2 {
+		#{$parent} {
+			&__card {
+				gap: 52px;
+				width: 252px;
+			}
+
+			&__text {
+				padding: 25px 10px 26px 26px;
+			}
+		}
+	}
+
+	&--3 {
+		margin-left: -33px;
+
+		#{$parent} {
+			&__card {
+				width: 714px;
+				gap: 112px;
+			}
+		}
+	}
+
+	&--4 {
+		justify-content: flex-start;
+
+		&::before {
+			left: 184px;
+			bottom: 197px;
+			border-radius: 20px 20px 0 0;
+		}
+
+		#{$parent} {
+			&__card {
+				width: 494px;
+				margin-top: 265px;
+			}
+		}
+	}
+
+	&--5 {
+		justify-content: flex-start;
+		margin-top: 50px;
+		margin-left: -426px;
+
+		&::before {
+			right: 0;
+			bottom: 195px;
+			width: 110px;
+			height: 80px;
+			border-radius: 0 0 20px 20px;
+		}
+
+		#{$parent} {
+			&__card {
+				width: 633px;
+				border-radius: 18px 18px 0 18px;
+			}
+		}
+	}
+
+	&--6 {
+		justify-content: flex-start;
+
+		#{$parent} {
+			&__card {
+				width: 405px;
+			}
+		}
+	}
+
+	&--7 {
+		margin-left: -46px;
+
+		&::before {
+			left: 322px;
+			bottom: 173px;
+			z-index: 1;
+			height: 90px;
+			border-radius: 0 0 20px 20px;
+		}
+
+		#{$parent} {
+			&__card {
+				width: 592px;
+
+				&:nth-child(3) {
+					height: 240px;
+				}
+			}
+		}
+	}
+
+	&--8 {
+		justify-content: space-between;
+		margin-left: -9px;
+
+		&::before {
+			left: 0;
+			bottom: 138px;
+			z-index: 1;
+			height: 140px;
+			border-radius: 20px 20px 0 0;
+		}
+
+		#{$parent} {
+			&__card {
+				width: 592px;
+				border-radius: 0 18px 18px 18px;
+			}
+		}
+	}
+
+	&--9 {
+		margin-left: -524px;
+
+		&::before {
+			right: 0;
+			top: 217px;
+			z-index: 1;
+			height: 110px;
+			border-radius: 0 0 20px 20px;
+		}
+
+		#{$parent} {
+			&__top {
+				padding-left: 180px;
+			}
+
+			&__card {
+				width: 592px;
+				border-radius: 18px 18px 0 18px;
+			}
+		}
+	}
+
+	&--10 {
+		position: relative;
+		z-index: 2;
+
+		#{$parent} {
+			&__card {
+				width: 557px;
+				height: 100%;
+			}
+		}
+	}
+
+	&--11 {
+		margin-left: 22px;
+
+		#{$parent} {
+			&__card {
+				width: 406px;
+			}
+
+			&__image {
+				height: 135px;
+			}
+		}
+	}
+
+	&--12 {
+		margin-left: 20px;
+
+		#{$parent} {
+			&__card {
+				width: 554px;
+			}
+
+			&__image {
+				height: 128px;
+				border-radius: 13px 13px 0 0;
+			}
+		}
+	}
+
+	&--13 {
+		margin-left: 93px;
+
+		#{$parent} {
+			&__title {
+				white-space: nowrap;
+			}
+
+			&__card {
+				width: 292px;
+			}
+		}
+	}
+
+	&--14 {
+		justify-content: flex-end;
+
+		#{$parent} {
+			&__card {
+				width: 328px;
+				height: 337px;
+			}
+		}
+	}
+
+	&--15 {
+		margin-left: -170px;
+
+		&::before {
+			left: 68px;
+			top: 197px;
+			z-index: 1;
+			width: 110px;
+			height: 130px;
+			border-radius: 0 0 20px 20px;
+		}
+
+		#{$parent} {
+			&__card {
+				width: 495px;
+			}
+		}
+	}
+
+	&--16 {
+		justify-content: space-between;
+		margin-left: -360px;
+
+		&::before {
+			right: 342px;
+			bottom: 152px;
+			z-index: 1;
+			height: 110px;
+			border-radius: 20px 20px 0 0;
+		}
+
+		#{$parent} {
+			&__top {
+				padding-left: 380px;
+			}
+
+			&__title {
+				white-space: nowrap;
+			}
+
+			&__card {
+				width: 495px;
+			}
+		}
+	}
+
+	&--17 {
+		justify-content: flex-end;
+		margin-left: -290px;
+
+		#{$parent} {
+			&__card {
+				width: 700px;
+				height: 345px;
+			}
+		}
+	}
+
+	&--18 {
+		margin-left: -400px;
+
+		&::before {
+			right: 0;
+			top: 197px;
+			z-index: 1;
+			width: 130px;
+			height: 130px;
+			border-radius: 0 0 20px 20px;
+		}
+
+		#{$parent} {
+			&__card {
+				width: 495px;
+				border-radius: 20px 20px 0 20px;
+			}
+		}
+	}
+
+	&--19 {
+		justify-content: space-between;
+		margin-left: -131px;
+		margin-right: 120px;
+
+		&::before {
+			left: 283px;
+			bottom: 152px;
+			z-index: 1;
+			height: 110px;
+			border-radius: 20px 20px 0 0;
+		}
+
+		#{$parent} {
+			&__top {
+				padding-left: 302px;
+			}
+
+			&__card {
+				width: 705px;
+			}
+		}
+	}
+}

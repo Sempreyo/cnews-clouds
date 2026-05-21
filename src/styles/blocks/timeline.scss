@@ -1,0 +1,75 @@
+.timeline {
+	//max-width: calc(100% - 260px);
+	width: 100%;
+	padding: 0 180px 0 20px;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+
+	@include max(tl) {
+		width: auto;
+		margin: 0 -24px;
+	}
+
+	&__scroll {
+		position: relative;
+	}
+
+	&__page {
+		display: none;
+		gap: 56px;
+		opacity: 0;
+		transition: 0.3s ease;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+
+	&__cloud,
+	&__square {
+		position: absolute;
+		z-index: 3;
+	}
+
+	&__cloud {
+		&--1 {
+			left: 320px;
+			bottom: -60%;
+		}
+
+		&--2 {
+			left: 1100px;
+			bottom: -60%;
+		}
+
+		&--3 {
+			z-index: 0;
+			bottom: -300px;
+			right: -120px;
+		}
+	}
+
+	&__square {
+		&--1 {
+			bottom: 0;
+			right: 600px;
+		}
+
+		&--2 {
+			bottom: -48px;
+			left: 363px;
+		}
+
+		&--3 {
+			z-index: 0;
+			top: 0;
+			left: 1188px;
+		}
+
+		&--4 {
+			bottom: -40px;
+			right: -140px;
+		}
+	}
+}

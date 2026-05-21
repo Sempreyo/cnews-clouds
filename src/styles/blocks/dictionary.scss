@@ -1,0 +1,125 @@
+.dictionary {
+	position: relative;
+	opacity: 0;
+	pointer-events: none;
+	max-width: 580px;
+	transition: 0.3s ease 0.7s;
+
+	@include max(ti) {
+		max-width: 100%;
+	}
+
+	&__label {
+		position: absolute;
+		top: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+		background-color: $color-background;
+		padding: 0 12px;
+		font-weight: 700;
+		font-size: 13px;
+		text-align: center;
+		text-transform: uppercase;
+		white-space: nowrap;
+
+		@include max(dxl) {
+			background-color: transparent;
+			top: -20px;
+		}
+	}
+
+	&__slider {
+		position: relative;
+		border: 1px solid $white;
+		border-radius: 46px;
+		overflow: visible;
+	}
+
+	.swiper-slide {
+		padding: 0 50px;
+	}
+
+	&__title {
+		padding: 14px 20px;
+		font-weight: 700;
+		font-size: 17px;
+		text-align: center;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		span {
+			transition: 0.3s ease;
+		}
+
+		&:hover > span {
+			color: $color-primary;
+		}
+	}
+
+	&__text {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		display: flex;
+		gap: 45px;
+		padding: 35px 45px;
+		background-color: $white;
+		border-radius: 54px;
+		color: $black;
+		font-family: $secondFont;
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 1.2;
+		text-transform: none;
+		opacity: 0;
+		pointer-events: none;
+
+		@include max(t) {
+			padding: 35px 45px 35px 20px;
+			border-radius: 10px;
+			text-align: left;
+		}
+
+		&.open {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+
+	&__close {
+		min-width: 30px;
+		max-width: 30px;
+		height: 30px;
+		cursor: pointer;
+		transition: 0.3s ease;
+
+		@include max(t) {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			min-width: 20px;
+			max-width: 20px;
+		}
+
+		&:hover {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__nav {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		transform: translateY(-50%);
+		height: 100%;
+
+		.swiper-btn-prev,
+		.swiper-btn-next {
+			width: 55px;
+			height: 100%;
+		}
+	}
+}
