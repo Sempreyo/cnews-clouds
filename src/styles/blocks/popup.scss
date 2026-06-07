@@ -9,14 +9,19 @@
 	justify-content: center;
 	gap: 100px;
 	opacity: 0;
-	pointer-events: none;
+	pointer-events: none !important;
 	transition: 0.3s ease;
+
+	.swiper-slide,
+	.swiper-slide-active {
+		pointer-events: none !important;
+	}
 
 	&.open {
 		opacity: 1;
-		pointer-events: auto;
+		pointer-events: auto !important;
 
-		#{$parent}__slide {
+		.swiper-slide-active {
 			pointer-events: auto !important;
 		}
 	}
@@ -80,7 +85,6 @@
 		align-items: center;
 		gap: 42px;
 		padding: 52px 54px 58px 0;
-		pointer-events: none !important;
 	}
 
 	&__square {
@@ -89,6 +93,7 @@
 		right: calc(100% + 15px);
 		width: 194px;
 		height: 156px;
+		pointer-events: none;
 	}
 
 	&__image-wrapper {
@@ -126,6 +131,15 @@
 
 		p + p {
 			margin-top: 15px;
+		}
+
+		a {
+			color: $color-primary;
+			transition: 0.3s ease;
+
+			&:hover {
+				color: rgba($color-primary, 0.7);
+			}
 		}
 	}
 

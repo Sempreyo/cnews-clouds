@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					const dictionaryItems = heroSection.querySelectorAll(".dictionary__title");
 					const title = heroSection.querySelector(".tabs__title");
 					const dictionaryCarousel = heroSection.querySelector(".dictionary__slider");
+					const clientsCarousel = heroSection.querySelector(".clients__slider");
 					let horizontalTween;
 
 					// Анимация первого экрана
@@ -150,6 +151,16 @@ document.addEventListener("DOMContentLoaded", () => {
 					// Клик на табы
 					tabsButton.forEach((button, index) => {
 						button.addEventListener("click", () => {
+							const timeline = document.querySelector(".timeline");
+							const clientTitle = document.querySelector(".clients__title-name");
+							const timelineActiveClass = Array.from(timeline.classList).find(className => className.startsWith("active-"));
+
+							// Присваиваем класс по активному табу
+							if (timelineActiveClass) {
+								timeline.classList.remove(timelineActiveClass);
+							}
+							timeline.classList.add(`active-${index + 1}`);
+
 							// Применяем стандартный контейнер
 							if (container) {
 								container.classList.remove("container--small");
@@ -216,10 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 							setTimeout(() => {
 								const horizontalSection = document.querySelector(".hero");
-								const timeline = document.querySelector(".timeline");
-								//const timelineScroll = document.querySelector(".timeline__scroll");
 
-								const timelineScrollWidth = tabsContent[index].offsetWidth + 200;
+								const timelineScrollWidth = tabsContent[index].offsetWidth/* + (index === 0 ? 700 : 200)*/ + 200;
 								const timelineWidth = timeline.offsetWidth;
 								const scrollDistance = timelineScrollWidth - timelineWidth;
 
@@ -246,6 +255,20 @@ document.addEventListener("DOMContentLoaded", () => {
 											if (dictionaryCarousel.swiper) {
 												dictionaryCarousel.swiper.slideTo(
 													Math.round(self.progress * (dictionaryCarousel.swiper.slides.length))
+												);
+											}
+
+											if (clientsCarousel.swiper && !media991) {
+												if (clientsCarousel.swiper.activeIndex === 0) {
+													clientTitle.textContent = "поставщики";
+												} else if (clientsCarousel.swiper.activeIndex === 1) {
+													clientTitle.textContent = "заказчики";
+												} else {
+													clientTitle.textContent = "чиновники";
+												}
+
+												clientsCarousel.swiper.slideTo(
+													Math.round(self.progress * (clientsCarousel.swiper.slides.length))
 												);
 											}
 										}

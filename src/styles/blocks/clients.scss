@@ -11,9 +11,8 @@
 	}
 
 	&__left {
-		@include max(tl) {
-			width: 100%;
-		}
+		width: 100%;
+		padding-right: 30px;
 	}
 
 	&__title {
@@ -23,9 +22,53 @@
 		text-transform: uppercase;
 	}
 
-	&__items {
-		padding-right: 30px;
+	&__slider {
+		position: relative;
 		margin-top: 26px;
+		padding-bottom: 60px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 60px;
+			left: 0;
+			z-index: 2;
+			width: 100%;
+			height: 70px;
+			display: block;
+			background: linear-gradient(0deg, rgba(114, 177, 255, 1) 0%, rgba(230, 230, 230, 0) 100%);
+			pointer-events: none;
+			opacity: 1;
+			transition: 0.3s ease;
+		}
+
+		&.started::before {
+			opacity: 0;
+		}
+	}
+
+	&__nav {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.swiper-btn-prev,
+		.swiper-btn-next {
+			width: 55px;
+			height: 55px;
+		}
+	}
+
+	&__items {
+		height: 500px;
+		overflow-y: auto;
+		scroll-behavior: smooth;
+
+		&::-webkit-scrollbar {
+			width: 0;
+			background: transparent;
+		}
 	}
 
 	&__item {
@@ -51,11 +94,17 @@
 		position: absolute;
 		top: 59px;
 		left: -12px;
+		cursor: pointer;
+
+		&:hover #{$parent}__thumb-icon {
+			transform: rotate(90deg) scale(1.1);
+		}
 	}
 
 	&__thumb-icon {
 		width: 27px;
 		height: 24px;
 		transform: rotate(90deg);
+		transition: 0.3s ease;
 	}
 }

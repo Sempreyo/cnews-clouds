@@ -11,6 +11,14 @@
 		margin: 0 -24px;
 	}
 
+	&.active-2 .progress span:nth-child(-n + 4) {
+		display: none;
+	}
+
+	&.active-3 .progress span:nth-child(-n + 2) {
+		display: none;
+	}
+
 	&__scroll {
 		position: relative;
 	}
@@ -30,6 +38,7 @@
 	&__square {
 		position: absolute;
 		z-index: 3;
+		pointer-events: none;
 	}
 
 	&__cloud {
@@ -53,18 +62,18 @@
 	&__square {
 		&--1 {
 			bottom: 0;
-			right: 600px;
+			right: 1700px;
 		}
 
 		&--2 {
 			bottom: -48px;
-			left: 363px;
+			left: 900px;
 		}
 
 		&--3 {
 			z-index: 0;
 			top: 0;
-			left: 1188px;
+			left: 1500px;
 		}
 
 		&--4 {
