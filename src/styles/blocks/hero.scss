@@ -239,6 +239,12 @@
 		margin-top: 32px;
 	}
 
+	&__portraits {
+		position: absolute;
+		top: -82px;
+    	left: 52.5%;
+	}
+
 	&--closed {
 		padding: 37px 0 0;
 		background: url("../images/background.jpg") no-repeat;
