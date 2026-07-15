@@ -16,8 +16,10 @@ block main
 			.hero__top
 				.hero__top-columns
 					.hero__title-wrapper
-						a(href='https://www.cnews.ru/')
-							+icon('logo-cnews', 'hero__logo')
+						.hero__logos-wrapper
+							a(href='https://www.cnews.ru/')
+								+icon('logo-cnews', 'hero__logo')
+							+picture('cod-logo', 'png', 'hero__partner')
 						h1.hero__title Главные лица и&nbsp;компании на&nbsp;российском рынке облаков за
 					svg.hero__year(width='321' height='303' viewbox='0 0 321 303' fill='none' xmlns='http://www.w3.org/2000/svg')
 						path.hero__year-label(d='M170 264.386C175.039 264.386 177.559 260.819 177.559 253.685V237.579H199.971V269H194.148V242.633H183.381V253.685C183.381 263.895 178.921 269 170 269V264.386ZM228.074 237.579V242.589H212.341V250.499H227.327V255.707H212.275V263.946H228.381V269H206.562V237.579H228.074ZM254.309 237.579V242.633H245.3V269H239.478V242.633H230.469V237.579H254.309Z' fill='white')
@@ -33,8 +35,7 @@ block main
 						path(d='M146.422 298.682V300H140.586V298.875L143.346 295.916C143.623 295.607 143.842 295.336 144.002 295.102C144.162 294.863 144.277 294.65 144.348 294.463C144.422 294.271 144.459 294.09 144.459 293.918C144.459 293.66 144.416 293.439 144.33 293.256C144.244 293.068 144.117 292.924 143.949 292.822C143.785 292.721 143.582 292.67 143.34 292.67C143.082 292.67 142.859 292.732 142.672 292.857C142.488 292.982 142.348 293.156 142.25 293.379C142.156 293.602 142.109 293.854 142.109 294.135H140.416C140.416 293.627 140.537 293.162 140.779 292.74C141.021 292.314 141.363 291.977 141.805 291.727C142.246 291.473 142.77 291.346 143.375 291.346C143.973 291.346 144.477 291.443 144.887 291.639C145.301 291.83 145.613 292.107 145.824 292.471C146.039 292.83 146.146 293.26 146.146 293.76C146.146 294.041 146.102 294.316 146.012 294.586C145.922 294.852 145.793 295.117 145.625 295.383C145.461 295.645 145.262 295.91 145.027 296.18C144.793 296.449 144.533 296.729 144.248 297.018L142.766 298.682H146.422ZM153.219 294.984V296.461C153.219 297.102 153.15 297.654 153.014 298.119C152.877 298.58 152.68 298.959 152.422 299.256C152.168 299.549 151.865 299.766 151.514 299.906C151.162 300.047 150.771 300.117 150.342 300.117C149.998 300.117 149.678 300.074 149.381 299.988C149.084 299.898 148.816 299.76 148.578 299.572C148.344 299.385 148.141 299.148 147.969 298.863C147.801 298.574 147.672 298.23 147.582 297.832C147.492 297.434 147.447 296.977 147.447 296.461V294.984C147.447 294.344 147.516 293.795 147.652 293.338C147.793 292.877 147.99 292.5 148.244 292.207C148.502 291.914 148.807 291.699 149.158 291.562C149.51 291.422 149.9 291.352 150.33 291.352C150.674 291.352 150.992 291.396 151.285 291.486C151.582 291.572 151.85 291.707 152.088 291.891C152.326 292.074 152.529 292.311 152.697 292.6C152.865 292.885 152.994 293.227 153.084 293.625C153.174 294.02 153.219 294.473 153.219 294.984ZM151.525 296.684V294.756C151.525 294.447 151.508 294.178 151.473 293.947C151.441 293.717 151.393 293.521 151.326 293.361C151.26 293.197 151.178 293.064 151.08 292.963C150.982 292.861 150.871 292.787 150.746 292.74C150.621 292.693 150.482 292.67 150.33 292.67C150.139 292.67 149.969 292.707 149.82 292.781C149.676 292.855 149.553 292.975 149.451 293.139C149.35 293.299 149.271 293.514 149.217 293.783C149.166 294.049 149.141 294.373 149.141 294.756V296.684C149.141 296.992 149.156 297.264 149.188 297.498C149.223 297.732 149.273 297.934 149.34 298.102C149.41 298.266 149.492 298.4 149.586 298.506C149.684 298.607 149.795 298.682 149.92 298.729C150.049 298.775 150.189 298.799 150.342 298.799C150.529 298.799 150.695 298.762 150.84 298.688C150.988 298.609 151.113 298.488 151.215 298.324C151.32 298.156 151.398 297.938 151.449 297.668C151.5 297.398 151.525 297.07 151.525 296.684ZM160.109 294.984V296.461C160.109 297.102 160.041 297.654 159.904 298.119C159.768 298.58 159.57 298.959 159.312 299.256C159.059 299.549 158.756 299.766 158.404 299.906C158.053 300.047 157.662 300.117 157.232 300.117C156.889 300.117 156.568 300.074 156.271 299.988C155.975 299.898 155.707 299.76 155.469 299.572C155.234 299.385 155.031 299.148 154.859 298.863C154.691 298.574 154.562 298.23 154.473 297.832C154.383 297.434 154.338 296.977 154.338 296.461V294.984C154.338 294.344 154.406 293.795 154.543 293.338C154.684 292.877 154.881 292.5 155.135 292.207C155.393 291.914 155.697 291.699 156.049 291.562C156.4 291.422 156.791 291.352 157.221 291.352C157.564 291.352 157.883 291.396 158.176 291.486C158.473 291.572 158.74 291.707 158.979 291.891C159.217 292.074 159.42 292.311 159.588 292.6C159.756 292.885 159.885 293.227 159.975 293.625C160.064 294.02 160.109 294.473 160.109 294.984ZM158.416 296.684V294.756C158.416 294.447 158.398 294.178 158.363 293.947C158.332 293.717 158.283 293.521 158.217 293.361C158.15 293.197 158.068 293.064 157.971 292.963C157.873 292.861 157.762 292.787 157.637 292.74C157.512 292.693 157.373 292.67 157.221 292.67C157.029 292.67 156.859 292.707 156.711 292.781C156.566 292.855 156.443 292.975 156.342 293.139C156.24 293.299 156.162 293.514 156.107 293.783C156.057 294.049 156.031 294.373 156.031 294.756V296.684C156.031 296.992 156.047 297.264 156.078 297.498C156.113 297.732 156.164 297.934 156.23 298.102C156.301 298.266 156.383 298.4 156.477 298.506C156.574 298.607 156.686 298.682 156.811 298.729C156.939 298.775 157.08 298.799 157.232 298.799C157.42 298.799 157.586 298.762 157.73 298.688C157.879 298.609 158.004 298.488 158.105 298.324C158.211 298.156 158.289 297.938 158.34 297.668C158.391 297.398 158.416 297.07 158.416 296.684ZM165.611 291.381H165.857V292.729H165.758C165.312 292.729 164.916 292.795 164.568 292.928C164.221 293.061 163.926 293.25 163.684 293.496C163.445 293.738 163.262 294.031 163.133 294.375C163.008 294.719 162.945 295.104 162.945 295.529V296.947C162.945 297.252 162.975 297.521 163.033 297.756C163.096 297.986 163.184 298.18 163.297 298.336C163.414 298.488 163.551 298.604 163.707 298.682C163.863 298.756 164.039 298.793 164.234 298.793C164.418 298.793 164.584 298.754 164.732 298.676C164.885 298.598 165.014 298.488 165.119 298.348C165.229 298.203 165.311 298.035 165.365 297.844C165.424 297.648 165.453 297.436 165.453 297.205C165.453 296.975 165.424 296.762 165.365 296.566C165.311 296.371 165.229 296.203 165.119 296.062C165.01 295.918 164.877 295.807 164.721 295.729C164.564 295.65 164.389 295.611 164.193 295.611C163.928 295.611 163.693 295.674 163.49 295.799C163.291 295.92 163.135 296.076 163.021 296.268C162.908 296.459 162.848 296.66 162.84 296.871L162.33 296.543C162.342 296.242 162.404 295.957 162.518 295.688C162.635 295.418 162.795 295.18 162.998 294.973C163.205 294.762 163.453 294.598 163.742 294.48C164.031 294.359 164.357 294.299 164.721 294.299C165.119 294.299 165.469 294.375 165.77 294.527C166.074 294.68 166.328 294.889 166.531 295.154C166.734 295.42 166.887 295.727 166.988 296.074C167.09 296.422 167.141 296.793 167.141 297.188C167.141 297.602 167.072 297.986 166.936 298.342C166.803 298.697 166.609 299.008 166.355 299.273C166.105 299.539 165.805 299.746 165.453 299.895C165.102 300.043 164.707 300.117 164.27 300.117C163.816 300.117 163.404 300.035 163.033 299.871C162.666 299.703 162.35 299.469 162.084 299.168C161.818 298.867 161.613 298.51 161.469 298.096C161.328 297.682 161.258 297.229 161.258 296.736V296.08C161.258 295.393 161.357 294.764 161.557 294.193C161.76 293.619 162.051 293.123 162.43 292.705C162.809 292.283 163.266 291.957 163.801 291.727C164.336 291.496 164.939 291.381 165.611 291.381Z' fill='white')
 						path(d='M154 19.3333C152.527 19.3333 151.333 20.5272 151.333 22C151.333 23.4728 152.527 24.6667 154 24.6667C155.473 24.6667 156.667 23.4728 156.667 22C156.667 20.5272 155.473 19.3333 154 19.3333ZM154 277.833C152.527 277.833 151.333 279.027 151.333 280.5C151.333 281.973 152.527 283.167 154 283.167C155.473 283.167 156.667 281.973 156.667 280.5C156.667 279.027 155.473 277.833 154 277.833ZM154 22L153.5 22L153.5 280.5L154 280.5L154.5 280.5L154.5 22L154 22Z' fill='white')
 					.hero__portraits.portraits
-						+picture('portraits/1', 'jpg', 'portraits__item portraits__item--1', '')
-						+picture('portraits/2', 'jpg', 'portraits__item portraits__item--2', '')
+						+picture('authors/13', 'jpg', 'portraits__item portraits__item--2', '')
 						+picture('portraits/3', 'jpg', 'portraits__item portraits__item--3', '')
 						+picture('portraits/4', 'jpg', 'portraits__item portraits__item--4', '')
 						+picture('portraits/5', 'jpg', 'portraits__item portraits__item--5', '')
@@ -42,9 +43,9 @@ block main
 						+picture('portraits/7', 'jpg', 'portraits__item portraits__item--7', '')
 						+picture('portraits/8', 'jpg', 'portraits__item portraits__item--8', '')
 						+picture('portraits/9', 'jpg', 'portraits__item portraits__item--9', '')
-						+picture('portraits/10', 'jpg', 'portraits__item portraits__item--10', '')
+						+picture('authors/4', 'jpg', 'portraits__item portraits__item--10', '')
 						+picture('portraits/11', 'jpg', 'portraits__item portraits__item--11', '')
-						+picture('portraits/12', 'jpg', 'portraits__item portraits__item--12', '')
+						+picture('authors/3', 'jpg', 'portraits__item portraits__item--12', '')
 						+picture('portraits/13', 'jpg', 'portraits__item portraits__item--13', '')
 						+picture('portraits/14', 'jpg', 'portraits__item portraits__item--14', '')
 						+picture('portraits/21', 'jpg', 'portraits__item portraits__item--21', '')
@@ -54,363 +55,151 @@ block main
 						+picture('portraits/18', 'jpg', 'portraits__item portraits__item--18', '')
 						+picture('portraits/19', 'jpg', 'portraits__item portraits__item--19', '')
 						+picture('portraits/20', 'jpg', 'portraits__item portraits__item--20', '')
-						+picture('portraits/23', 'jpg', 'portraits__item portraits__item--23', '')
+						+picture('authors/7', 'jpg', 'portraits__item portraits__item--23', '')
 						+picture('portraits/24', 'jpg', 'portraits__item portraits__item--24', '')
-						+picture('portraits/22', 'jpg', 'portraits__item portraits__item--22', '')
+						+picture('authors/9', 'jpg', 'portraits__item portraits__item--22', '')
 						+picture('portraits/25', 'jpg', 'portraits__item portraits__item--25', '')
 						+picture('portraits/26', 'jpg', 'portraits__item portraits__item--26', '')
-						+picture('portraits/27', 'jpg', 'portraits__item portraits__item--27', '')
-						+picture('portraits/28', 'jpg', 'portraits__item portraits__item--28', '')
+						+picture('authors/10', 'jpg', 'portraits__item portraits__item--27', '')
+						+picture('authors/12', 'jpg', 'portraits__item portraits__item--28', '')
+						+picture('portraits/29', 'jpg', 'portraits__item portraits__item--29', '')
+						+picture('authors/2', 'jpg', 'portraits__item portraits__item--30', '')
 				.hero__top-patterns
-					+icon('square-1', 'square square--1')
+					+icon('square-4', 'square square--1')
 					+picture('dashes/1', 'png', 'dashes dashes--1')
-					+icon('square-2', 'square square--2')
 					+picture('clouds/1', 'png', 'cloud cloud--1')
 			.hero__middle
 				+picture('dashes/2', 'png', 'dashes dashes--2')
 				.hero__text.
-					Понятие «облачные вычисления» прочно вошло в лексикон ИТ-специалистов достаточно давно, хотя технологии в их основе
-					насчитывают десятилетия. В России путь от первых экспериментов с виртуализацией до зрелого рынка занял около 20 лет.
-					За это время сменилось несколько эпох: от доминирования западных вендоров до взрывного роста инфраструктурных услуг
-					и импортозамещения. В спецпроекте CNews прослеживает ключевые вехи развития рынка, распределяя события по трем
-					основным трекам — IaaS, PaaS и SaaS, — чтобы понять, как формировалась современная облачная экосистема в стране.
-			.hero__tabs.tabs
-				.tabs__title(data-text="IAAS") Инфраструктура как услуга
-				.tabs__timeline
-					span 2006
-					.tabs__line
-					span 2026
-				.tabs__bottom
-					.tabs__items
-						.tabs__item
-							+icon('timeline-arrow', 'tabs__arrow')
-							.tabs__button IaaS
-							.tabs__text Инфраструктура как услуга
-						.tabs__item
-							+icon('timeline-arrow', 'tabs__arrow')
-							.tabs__button Paas
-							.tabs__text Платформа как услуга
-						.tabs__item
-							+icon('timeline-arrow', 'tabs__arrow')
-							.tabs__button SaaS
-							.tabs__text Программное обеспечение как услуга
-						.tabs__item.tabs__item--popup(data-hidden)
-							.tabs__button
-								+icon('arrow-down')(width='22', height='22')
-								span История облачного рынка в&nbsp;лицах и&nbsp;цитатах
-					.dictionary
-						.dictionary__label Облачный словарь
-						.dictionary__slider.swiper
-							.swiper-wrapper
-								.swiper-slide
-									.dictionary__title
-										span IaaS (Infrastructure as a Service)
-										.dictionary__text
-											span Аренда вычислительных мощностей. Управление операционными системами и приложениями находится на стороне клиента
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span PaaS (Platform as a Service)
-										.dictionary__text
-											span Платформа для разработчиков. Клиент отвечает только за свои приложения, остальное контролирует провайдер
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span SaaS (Software as a Service)
-										.dictionary__text
-											span Готовое ПО по подписке. За всю инфраструктуру и поддержку отвечает провайдер, клиент только пользуется сервисом
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span Гиперскейлер
-										.dictionary__text
-											span Крупнейший облачный провайдер мирового уровня, обладающий масштабируемой инфраструктурой (AWS, Google Cloud, Azure)
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span Виды облаков (Public/Private/Hybrid)
-										.dictionary__text
-											span Публичные, частные, гибридные. Публичные доступны всем, частные — закрыты и принадлежат одной компании, гибридные предполагают объединение ресурсов частного облака (или собственной ИТ-инфраструктуры) и публичных облаков
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span Pay-as-you-go
-										.dictionary__text
-											span Модель оплаты по факту потребления (помегабайтная, почасовная), базовая для IaaS-решений
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span VDI/DaaS
-										.dictionary__text
-											span Виртуальные рабочие столы, позволяющие получить доступ к корпоративному ПК из любой точки мира
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span Контейнеризация
-										.dictionary__text
-											span Метод упаковки приложений со всеми зависимостями для гарантированного запуска в любой среде
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span OpenStack
-										.dictionary__text
-											span Платформа с открытым кодом для управления центрами обработки данных
-											+icon('close', 'dictionary__close')
-								.swiper-slide
-									.dictionary__title
-										span Cloud first подход, ориентированный на&nbsp;вычисления в облаке
-										.dictionary__text
-											span Стратегия развития ИТ-инфраструктуры организации, при которой приоритетом выступает размещение информации в облаке
-											+icon('close', 'dictionary__close')
-							.dictionary__nav.swiper-nav
-								.swiper-btn-prev
-									+icon('arrow-left')(width='25', height='25')
-								.swiper-btn-next
-									+icon('arrow-right')(width='25', height='25')
+					Понятие «облачные вычисления» прочно вошло в лексикон ИТ-специалистов давно &mdash; технологии в&nbsp;их основе
+					насчитывают десятилетия. В&nbsp;России путь от&nbsp;первых экспериментов с&nbsp;виртуализацией до&nbsp;рынка с&nbsp;достаточно зрелыми
+					решениями занял около 20 лет. За&nbsp;это время сменилось несколько эпох: от&nbsp;доминирования западных вендоров
+					до&nbsp;взрывного роста на&nbsp;инфраструктурные услуги и&nbsp;импортозамещения. В&nbsp;спецпроекте CNews прослеживает ключевые вехи
+					развития рынка, распределяя события по&nbsp;трем основным трекам &mdash; IaaS, PaaS и&nbsp;SaaS, &mdash; чтобы понять, как&nbsp;формировалась
+					современная облачная экосистема в&nbsp;стране.
+			.hero__tabs-wrapper
+				.hero__tabs.tabs
+					.tabs__title(data-text="IAAS") Инфраструктура как услуга
+					.tabs__timeline
+						span 2006
+						.tabs__line
+						span 2026
+					.tabs__bottom
+						.tabs__items
+							.tabs__item
+								+icon('timeline-arrow', 'tabs__arrow')
+								.tabs__button IaaS
+								.tabs__text Инфраструктура как услуга
+							.tabs__item
+								+icon('timeline-arrow', 'tabs__arrow')
+								.tabs__button Paas
+								.tabs__text Платформа как услуга
+							.tabs__item
+								+icon('timeline-arrow', 'tabs__arrow')
+								.tabs__button SaaS
+								.tabs__text Программное обеспечение как услуга
+							.tabs__item.tabs__item--popup(data-hidden)
+								.tabs__button
+									span Ключевые тенденции 20 лет
+						.dictionary
+							.dictionary__label Облачный словарь
+							.dictionary__slider.swiper
+								.swiper-wrapper
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span IaaS (Infrastructure as a Service)
+											.dictionary__text
+												span Аренда вычислительных мощностей. Управление операционными системами и приложениями находится на стороне клиента
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span PaaS (Platform as a Service)
+											.dictionary__text
+												span Платформа для разработчиков. Клиент отвечает только за свои приложения, остальное контролирует провайдер
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span SaaS (Software as a Service)
+											.dictionary__text
+												span Готовое ПО по подписке. За всю инфраструктуру и поддержку отвечает провайдер, клиент только пользуется сервисом
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span Гиперскейлер
+											.dictionary__text
+												span Крупнейший облачный провайдер мирового уровня, обладающий масштабируемой инфраструктурой (AWS, Google Cloud, Azure)
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span Виды облаков (Public/Private/Hybrid)
+											.dictionary__text
+												span Публичные, частные, гибридные. Публичные доступны всем, частные &mdash; закрыты и принадлежат одной компании, гибридные предполагают объединение ресурсов частного облака (или собственной ИТ-инфраструктуры) и публичных облаков
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span Pay-as-you-go
+											.dictionary__text
+												span Модель оплаты по факту потребления (помегабайтная, почасовная), базовая для IaaS-решений
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span VDI (Virtual Desktop Infrastructure)
+											.dictionary__text
+												span Это технология виртуализации, позволяющая запускать операционные системы и рабочие столы на удаленных серверах в дата-центре
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span DAAS (Desktop as a Service», «Рабочее место как услуга»)
+											.dictionary__text
+												span Формат, когда предприятие-работодатель не ставит свой сервер VDI, а покупает эту услугу у сторонней организации
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span Контейнеризация
+											.dictionary__text
+												span Метод упаковки приложений со всеми зависимостями для гарантированного запуска в любой среде
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span OpenStack
+											.dictionary__text
+												span Платформа с открытым кодом для управления центрами обработки данных
+												+icon('close', 'dictionary__close')
+									.dictionary__slide.swiper-slide
+										.dictionary__title
+											span Cloud first подход, ориентированный на&nbsp;вычисления в облаке
+											.dictionary__text
+												span Стратегия развития ИТ-инфраструктуры организации, при которой приоритетом выступает размещение информации в облаке
+												+icon('close', 'dictionary__close')
+								.dictionary__nav.swiper-nav
+									.swiper-btn-prev
+										+icon('arrow-left')(width='25', height='25')
+									.swiper-btn-next
+										+icon('arrow-right')(width='25', height='25')
 
 
 			.hero__content
-				.hero__clients.clients
-					.clients__left
-						.clients__title Ключевые <span class="clients__title-name">поставщики</span> на рынке облачных услуг
-						.clients__slider.swiper
-							.swiper-wrapper
-								.clients__items.swiper-slide
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/1', 'jpg', 'client-card__image', '')
-											.client-card__year с 2012 по н.в.
-										.client-card__name Дмитрий Гачко
-										.client-card__position Создатель компании «ИТ-Град», учредитель ITGlobal.com
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/10', 'jpg', 'client-card__image', '')
-											.client-card__year с 2013 по н.в.
-										.client-card__name Сергей Таран
-										.client-card__position Генеральный директор «Онланта»
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/7', 'jpg', 'client-card__image', '')
-											.client-card__year с 2014 по н.в.
-										.client-card__name Сергей Рассказов
-										.client-card__position Гендиректор DataSpace
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/6', 'jpg', 'client-card__image', '')
-											.client-card__year с 2019 по н.в.
-										.client-card__name Олег Любимов
-										.client-card__position Гендиректор Selectel
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/5', 'jpg', 'client-card__image', '')
-											.client-card__year с 2022 по н.в.
-										.client-card__name Сергей Наумов
-										.client-card__position Гендиректор Timeweb Cloud
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/8', 'jpg', 'client-card__image', '')
-											.client-card__year с 2022 по н.в.
-										.client-card__name Антон Степанов
-										.client-card__position Гендиректор «Т1 Облако»
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/4', 'jpg', 'client-card__image', '')
-											.client-card__year с 2025 по н.в.
-										.client-card__name Александр Обухов
-										.client-card__position Гендиректор «Турбо Облако»
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/9', 'jpg', 'client-card__image', '')
-											.client-card__year с 2025 по н.в.
-										.client-card__name Павел Воронин
-										.client-card__position Гендиректор MWS
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/2', 'jpg', 'client-card__image', '')
-											.client-card__year с 2026 по н.в.
-										.client-card__name Михаил Лобоцкий
-										.client-card__position Экс-СЕО SberCloud, гендиректор Cloud.ru
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/3', 'jpg', 'client-card__image', '')
-											.client-card__year с 2026 по н.в.
-										.client-card__name Евгений Колбин
-										.client-card__position Экс-гендиректор Cloud.ru, исполнительный директор MWS
-								.clients__items.swiper-slide
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/11', 'jpg', 'client-card__image', '')
-											.client-card__year с 2024 по н.в.
-										.client-card__name Кирилл Меньшов
-										.client-card__position Старший вице-президент, руководитель блока «Технологии» Сбера
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/13', 'jpg', 'client-card__image', '')
-											.client-card__year с 2024 по н.в.
-										.client-card__name Сергей Путятинский
-										.client-card__position Ex. ИТ-директор МКБ
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/15', 'jpg', 'client-card__image', '')
-											.client-card__year с 2024 по н.в.
-										.client-card__name Артем Самойлов
-										.client-card__position Директор по ИТ и цифровой трансформации, ГК «Таврос»
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/12', 'jpg', 'client-card__image', '')
-											.client-card__year с 2025 по н.в.
-										.client-card__name Николай Ульянов
-										.client-card__position ИТ-директор МКБ
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/14', 'jpg', 'client-card__image', '')
-											.client-card__year с 2025 по н.в.
-										.client-card__name Вячеслав Кубаев
-										.client-card__position Главный директор по цифровым технологиям «Магнит»
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/16', 'jpg', 'client-card__image', '')
-											.client-card__year с 2025 по н.в.
-										.client-card__name Николай Кныш
-										.client-card__position Директор по технологическому развитию “Лемана Тех”
-								.clients__items.swiper-slide
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/19', 'jpg', 'client-card__image', '')
-											.client-card__year 2008-2012
-										.client-card__name Игорь Щеголев
-										.client-card__position Министр цифрового развития РФ
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/20', 'jpg', 'client-card__image', '')
-											.client-card__year 2010
-										.client-card__name Сергей Собянин
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/21', 'jpg', 'client-card__image', '')
-											.client-card__year 2010
-										.client-card__name Вячеслав Володин
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/22', 'jpg', 'client-card__image', '')
-											.client-card__year 2012-2018
-										.client-card__name Николай Никифоров
-										.client-card__position Министр цифрового развития РФ
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/23', 'jpg', 'client-card__image', '')
-											.client-card__year 2012
-										.client-card__name Антон Вайно
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/24', 'jpg', 'client-card__image', '')
-											.client-card__year 2012
-										.client-card__name Владислав Сурков
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/26', 'jpg', 'client-card__image', '')
-											.client-card__year 2013–2018
-										.client-card__name Аркадий Дворкович
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/25', 'jpg', 'client-card__image', '')
-											.client-card__year 2018-2020
-										.client-card__name Константин Носков
-										.client-card__position Министр цифрового развития РФ
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/27', 'jpg', 'client-card__image', '')
-											.client-card__year 2018–2020
-										.client-card__name Максим Акимов
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/28', 'jpg', 'client-card__image', '')
-											.client-card__year с 2020 по н.в.
-										.client-card__name Максут Шадаев
-										.client-card__position Министр цифрового развития РФ
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/29', 'jpg', 'client-card__image', '')
-											.client-card__year 2020–2024
-										.client-card__name Дмитрий Чернышенко
-										.client-card__position Куратор «цифры» в правительстве
-									.clients__item.client-card
-										.client-card__top
-											.client-card__image-wrapper
-												+picture('clients/30', 'jpg', 'client-card__image', '')
-											.client-card__year с 2024 по н.в.
-										.client-card__name Дмитрий Григоренко
-										.client-card__position Куратор «цифры» в правительстве
-							.clients__nav.swiper-nav
-								.swiper-btn-prev
-									+icon('arrow-left')(width='25', height='25')
-								.swiper-btn-next
-									+icon('arrow-right')(width='25', height='25')
-					.clients__bar
-						.clients__rail
-						.clients__thumb
-							+icon('timeline-arrow', 'clients__thumb-icon')
+				.hero__menu
+					+icon('square-3', 'hero__menu-square')
+					+button('История облачного рынка в&nbsp;лицах и&nbsp;цитатах', 'hero__menu-item hero__menu-item--history', '', 'arrow-down')
+					+button('К таймлайну', 'hero__menu-item hero__menu-item--timeline hidden', '', 'arrow-down')
+					+button('', 'hero__menu-item hero__menu-item--prev', '', 'arrow-left')
+					+button('', 'hero__menu-item hero__menu-item--next', '', 'arrow-right')
+					+button('На стартовую', 'hero__menu-item hero__menu-item--start')
 				.hero__timeline.timeline
 					.timeline__wrapper
 						.timeline__scroll
-							.hero__progress.progress
-								.progress__line
-								span 2006
-								span 2007
-								span 2008
-								span 2009
-								span 2010
-								span 2011
-								span 2012
-								span 2013
-								span 2014
-								span 2015
-								span 2016
-								span 2017
-								span 2018
-								span 2019
-								span 2020
-								span 2021
-								span 2022
-								span 2023
-								span 2024
-								span 2025
-								span 2026
 							.timeline__page.timeline__page--1
-								+picture('clouds/1', 'png', 'timeline__cloud timeline__cloud--1')
+								.timeline__progress.timeline__progress--1.progress
+									.progress__line
+									span 2006-2010
+									span 2011-2012
+									span 2013-2019
+									span 2022
+									span 2023
+									span 2024
+									span 2025
+									span 2026
 								+icon('square-3', 'timeline__square timeline__square--1')
 								.timeline-step.timeline-step--1
 									.timeline-step__top
@@ -423,18 +212,19 @@ block main
 											Первый <a href="https://www.cnews.ru/news/line/obem_rossijskogo_rynka_oblachnyh_uslug" target="_blank">заключался</a>
 											в перепродаже мощностей международных провайдеров. Пионерами
 											рынка <a href="https://www.cnews.ru/news/top/vmware_v_rossii_vyrosla_v_razy" target="_blank">стали</a> американская
-											VMWare со своей системой виртуализации и Linux Foundation с опенсорсным монитором виртуальных машин Xen. Российские
+											VMware со своей системой виртуализации и Linux Foundation с опенсорсным монитором виртуальных машин Xen. Российские
 											дистрибьюторы и системные интеграторы предлагали компаниям доступ к этим ресурсам и помощь в переносе данных и систем,
-											техническую поддержку и организацию биллинга. Среди первых интеграторов, кто начал работу с новыми
-											продуктами — «ИТ-Град» (сейчас ITGlobal.com), «Крок», «Инфрабокс» и ActiveCloud.
+											техническую поддержку и организацию биллинга.
 										.timeline-step__text.
-											Второй сценарий — создание собственных облачных платформ на базе коммерческих центров обработки данных.
+											Среди первых интеграторов, кто начал работу с новыми продуктами &mdash; «ИТ-Град», «Крок», «Инфрабокс», Softline и ActiveCloud.
+											<br>
+											Второй сценарий &mdash; создание собственных облачных платформ на базе коммерческих центров обработки данных.
 											Первыми этот сегмент освоили бывшие хостинг-провайдеры и системные интеграторы. Со временем к ним присоединились
 											операторы связи, банки и сами владельцы дата-центров, начавшие предлагать собственные IaaS-решения.
 								.timeline-step.timeline-step--full-image.timeline-step--22
 									.timeline-step__card
 										.timeline-step__image-wrapper
-											+picture('iaas/2', 'jpg', 'timeline-step__image', '')
+											+picture('iaas/1', 'jpg', 'timeline-step__image', '')
 								.timeline-step.timeline-step--2
 									.timeline-step__top
 										.timeline-step__year 2011–2012
@@ -445,29 +235,27 @@ block main
 											Несмотря на то, что интерес к IaaS в России еще
 											только <a href="https://www.cnews.ru/news/line/rossiya_obem_rynka_iaasreshenij_v" target="_blank">формировался</a>, и далеко
 											не все компании доверяли облачным сервисам, объем российского
-											рынка IaaS в 2011 г. <a href="https://www.cnews.ru/news/line/obem_rossijskogo_rynka_iaas_v_2011" target="_blank">составил</a>
-											380 млн руб. На конец 2011 г. суммарная полезная площадь российских коммерческих ЦОД составила 60,9 тыс. кв.м, увеличившись
-											более чем на 60% по сравнению с 2010 г.
+											рынка IaaS в&nbsp;2011&nbsp;г. <a href="https://www.cnews.ru/news/line/obem_rossijskogo_rynka_iaas_v_2011" target="_blank">составил</a>
+											380 млн руб. На конец 2011&nbsp;г. суммарная полезная площадь российских коммерческих ЦОД составила 60,9 тыс. кв.м, <a href="https://www.cnews.ru/reviews/free/cloud/articles/articles7.shtml" target="_blank">увеличившись</a>
+											более чем на 60% по сравнению с&nbsp;2010&nbsp;г.
 										.timeline-step__image-wrapper
-											+picture('iaas/4', 'jpg', 'timeline-step__image', '')
+											+picture('iaas/2', 'jpg', 'timeline-step__image', '')
 								.timeline-step.timeline-step--3
 									.timeline-step__top
 										.timeline-step__year 2013—2019
 											.timeline-step__line
 										.timeline-step__title Цифровизация и массовый переход в облака
 									.timeline-step__card
-										.timeline-step__text
-											p.
+										.timeline-step__text.
 												Чтобы оперативно управлять клиентскими сервисами и выводить новые продукты на рынок, требуется гибкая ИТ-инфраструктура
 												и оперативная разработка. Бизнес массово автоматизирует свою операционную деятельность и усиливает ИТ-команду:
-												наступает эпоха цифровизации.
-											p.
-												Крупные организации, — в первую очередь, банки, розничные компании, мобильные операторы — становятся полноценными
+												наступает эпоха цифровизации. Крупные организации, &mdash; в первую очередь, банки, розничные компании, мобильные операторы &mdash; становятся полноценными
 												ИТ-компаниями, расширяя штат ИТ-отделов, набирая новых администраторов, аналитиков, тестировщиков. У компаний растет
 												доверие к облакам, инфраструктура все чаще переносится за контур собственных серверов.
-												<a href="https://www.cnews.ru/reviews/cloud2017/articles/odna_shestaya_vseh_zatrat_na_itinfrastrukturu_prihoditsya_na_oblaka" target="_blank">По данным</a> аналитиков,
-												на 2014 г. 63% компаний уже использовали облака, еще 27% респондентов находились на различных стадиях проектирования и тестирования.
 										.timeline-step__text.
+											По данным аналитиков,
+											на 2014 г. 63% компаний уже использовали облака,
+											еще 27% респондентов находились на различных стадиях проектирования и тестирования.
 											<a href="https://www.cnews.ru/articles/oblaka_ot_teorii_k_praktike/2" target="_blank">Растет</a> популярность гибридных IaaS-решений,
 											когда инфраструктура хранится и в частном корпоративном, и в публичном облаках, позволяя по необходимости переносить нужные
 											приложения между этими структурами. Растет и объем центров обработки данных: операторы связи, такие как «Мегафон» и МТС,
@@ -475,8 +263,8 @@ block main
 								.timeline-step.timeline-step--full-image.timeline-step--21
 									.timeline-step__card
 										.timeline-step__image-wrapper
-											+picture('iaas/1', 'jpg', 'timeline-step__image', '')
-								.timeline-step.timeline-step--pointer.timeline-step--4
+											+picture('iaas/3', 'jpg', 'timeline-step__image', '')
+								.timeline-step.timeline-step--4
 									.timeline-step__top
 										.timeline-step__year 2022
 											.timeline-step__line
@@ -485,9 +273,11 @@ block main
 										.timeline-step__text.
 											На фоне политической турбулентности рынок IaaS продемонстрировал рекордную динамику, обусловленную уходом иностранных
 											вендоров и возникшим острым дефицитом серверного оборудования.
-											<a href="https://importfree.cnews.ru/reviews/oblachnye_servisy_2023/articles/uhod_zapadnyh_vendorov_prines_rekordnuyu" target="_blank">По данным</a> CNews,
+											По <a href="https://importfree.cnews.ru/reviews/oblachnye_servisy_2023/articles/uhod_zapadnyh_vendorov_prines_rekordnuyu" target="_blank">данным</a> CNews,
 											выручка топ-10 IaaS-провайдеров России достигла 70,4 млрд рублей. Темпы роста сектора оказались в 5,5 раза выше, чем у ИТ-рынка в целом:
-											если выручка крупнейших ИТ-компаний выросла на 9%, то у лидеров IaaS — на 51%.
+											если выручка крупнейших ИТ-компаний выросла на 9%, то у лидеров IaaS &mdash; на 51%.
+										.timeline-step__image-wrapper
+											+picture('iaas/4', 'jpg', 'timeline-step__image', '')
 										.timeline-step__text
 											p.
 												Уход западных облачных провайдеров и невозможность быстро закупить «железо» для собственной инфраструктуры заставили бизнес
@@ -495,7 +285,7 @@ block main
 												облака. Весной 2022 г. был зафиксирован десятикратный рост запросов на миграцию, а общий спрос на услуги отечественных
 												провайдеров вырос на 35%. Дополнительным драйвером стала локализация данных и ужесточение требований к информационной
 												безопасности. В результате лидеры рынка показали взрывной рост: «Ростелеком» увеличил выручку
-												на 111%, Cloud.ru — на 92%, Selectel — на 71%, а «Яндекс.Облако» — на 173%.
+												на 111%, Cloud.ru &mdash; на 92%, Selectel &mdash; на 71%, а «Яндекс.Облако» &mdash; на 173%.
 											p.
 												Ситуация с оборудованием стала критической: после ухода Dell, HP, Cisco и других западных брендов поставки серверов
 												и СХД были практически парализованы. Компании были вынуждены завозить технику по параллельному импорту, что привело
@@ -518,11 +308,11 @@ block main
 									.timeline-step__top
 										.timeline-step__year 2024—н.в.
 											.timeline-step__line
-										.timeline-step__title Новая реальность: импортозамещенный стек и бум ИИ
+										.timeline-step__title Новая реальность: <br> импортозамещенный стек и бум ИИ
 									.timeline-step__card
 										.timeline-step__text.
-											Российские провайдеры вынуждены <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2023/cases/vmware_ushla_zadachi_ostalis" target="_blank">перестраивать</a> инфраструктуру
-											с VMware на отечественное ПО и открытые решения, типа OpenStack, zVirt и др.
+											Российские провайдеры вынуждены <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2023/cases/vmware_ushla_zadachi_ostalis" target="_blank">переводить</a> инфраструктуру
+											с VMware и Citrix на отечественное ПО и открытые решения, типа OpenStack, zVirt и др.
 											Параллельно возникает <a href="https://www.cnews.ru/news/top/2023-09-08_defitsit_peredovyh_gpu_sluchilsya" target="_blank">дефицит</a> графических
 											процессоров GPU для задач машинного обучения, что стимулирует спрос на аренду таких мощностей у облачных провайдеров. К 2025 г. направление
 											искусственного интеллекта становится главным драйвером роста для лидеров рынка.
@@ -532,20 +322,32 @@ block main
 											.timeline-step__line
 										.timeline-step__title Переход к промышленному внедрению ИИ
 									.timeline-step__card
+										.timeline-step__text.
+											Облачный провайдер Cloud.ru переходит от экспериментов к промышленному внедрению искусственного интеллекта.
+											ИИ-направление стало главным драйвером роста: по данным Cloud.ru, по итогам 9 полных месяцев 2025 г. его вклад
+											в общую выручку составил 54%. В 2025 г. компания стала лидером рынка по совокупной выручке от IaaS и PaaS и заняла
+											первое место среди крупнейших провайдеров ИИ-решений, <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2024" target="_blank">по данным</a> CNews Analytics.
 										.timeline-step__image-wrapper
-											+picture('iaas/3', 'jpg', 'timeline-step__image', '')
-										.timeline-step__text
-											p.
-												Облачный провайдер Cloud.ru переходит от экспериментов к промышленному внедрению искусственного интеллекта.
-												ИИ-направление стало главным драйвером роста: по данным Cloud.ru, по итогам 9 полных месяцев 2025 г. его вклад
-												в общую выручку составил 54%. В 2025 г. компания стала лидером рынка по совокупной выручке от IaaS и PaaS и заняла
-												первое место среди крупнейших провайдеров ИИ-решений, <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2024" target="_blank">по данным</a> CNews Analytics.
-											p.
-												В портфеле Cloud.ru — более 100 IaaS- и PaaS-сервисов, публичное облако Cloud.ru Evolution на базе собственных технологий,
-												аттестованная инфраструктура для размещения ГИС и КИИ, платформа для частных и гибридных облаков Evolution Stack,
-												а также цифровая среда для промышленной работы с генеративным ИИ — Evolution AI Factory.
+											+picture('iaas/5', 'jpg', 'timeline-step__image', '')
+										.timeline-step__text.
+											В портфеле Cloud.ru &mdash; более 100 IaaS- и PaaS-сервисов, публичное облако Cloud.ru Evolution на базе собственных технологий,
+											аттестованная инфраструктура для размещения ГИС и КИИ, платформа для частных и гибридных облаков Evolution Stack,
+											а также цифровая среда для промышленной работы с генеративным ИИ &mdash; Evolution AI Factory.
 							.timeline__page.timeline__page--2
-								+picture('clouds/1', 'png', 'timeline__cloud timeline__cloud--2')
+								.timeline__progress.timeline__progress--2.progress
+									.progress__line
+									span 2009
+									span 2010
+									span 2011
+									span 2014
+									span 2019
+									span 2020
+									span 2021
+									span 2022
+									span 2023
+									span 2024
+									span 2025
+									span 2026
 								+icon('square-3', 'timeline__square timeline__square--2')
 								+icon('square-3', 'timeline__square timeline__square--3')
 								.timeline-step.timeline-step--7
@@ -559,12 +361,13 @@ block main
 												Российский рынок PaaS-решений находился на самой ранней, экспериментальной стадии развития. В отличие от более
 												понятной бизнесу аренды инфраструктуры, PaaS-сервисы на раннем этапе требовали от разработчиков специальных
 												навыков и ограничивали их свободу, привязывая к конкретным инструментам, что тормозило массовое внедрение технологии.
+											p.
+												Ключевым игроком в 2010 г. <a href="https://www.cnews.ru/reviews/free/2010/articles/articles2.shtml" target="_blank">стала</a> компания
+												Softline, предложившая первый в России коммерческий PaaS-хостинг на базе Windows Azure. Также предпринимались попытки
+												создать независимую от международных решений платформу: российско-украинский стартап Hivext получил инвестиции и в
+												партнерстве с «АктивХост.ру» запустился в России.
 										.timeline-step__text.
-											Ключевым игроком в 2010 г. <a href="https://www.cnews.ru/reviews/free/2010/articles/articles2.shtml" target="_blank">стала</a> компания
-											Softline, предложившая первый в России коммерческий PaaS-хостинг на базе Windows Azure. Также предпринимались попытки
-											создать независимую от международных решений платформу: российско-украинский стартап Hivext получил инвестиции и в
-											партнерстве с «АктивХост.ру» запустился в России. <br>
-											В целом, из-за отсутствия доминирующих поставщиков решений вроде Amazon, российский рынок того периода был более
+											В целом, из-за отсутствия доминирующих поставщиков решений вроде Amazon российский рынок того периода был более
 											разнообразным и конкурентным, чем западный, хотя поначалу уступал ему в технологической сложности.
 								.timeline-step.timeline-step--pointer.timeline-step--8
 									.timeline-step__top
@@ -572,60 +375,74 @@ block main
 											.timeline-step__line
 										.timeline-step__title Освоение&nbsp;OpenStack&nbsp;в&nbsp;России
 									.timeline-step__card
-										.timeline-step__text.
-											Российские ИТ-гиганты и провайдеры начинают активно изучать
-											и <a href="https://www.cnews.ru/articles/openstack_kak_poluchit_nadezhnoe_oblachnoe" target="_blank">внедрять</a> OpenStack — открытую
-											платформу для создания облачных инфраструктур. Это становится первым серьезным шагом к созданию собственных, независимых
-											от зарубежных вендоров, платформенных решений. К слову, мировые крупные компании (Samsung, PayPal, Visa) также начинают
-											уходить от VMWare из-за экономических сложностей и переходят на OpenStack.
-										.timeline-step__text.
-											В то же время использование OpenStack сопряжено с рядом вызовов: сложность и отсутствие четкой инструкции, тяжелая
-											документация, дефицит кадров, умеющих работать с платформой. Однако OpenStack остается зрелым стандартом с открытым
-											исходным кодом для построения приватных облаков. Забегая вперед: именно OpenStack сыграет ключевую роль
-											в импортозамещении 2022 г.
-								.timeline-step.timeline-step--full-image.timeline-step--pointer.timeline-step--9
+										.timeline-step__text
+											p.
+												Российские ИТ-гиганты и провайдеры начинают активно изучать
+												и <a href="https://www.cnews.ru/articles/openstack_kak_poluchit_nadezhnoe_oblachnoe" target="_blank">внедрять</a> OpenStack &mdash; открытую
+												платформу для создания облачных инфраструктур. Это становится первым серьезным шагом к созданию собственных, независимых
+												от зарубежных вендоров, платформенных решений. К слову, мировые крупные компании (Samsung, PayPal, Visa) также начинают
+												уходить от VMware из-за экономических сложностей и переходят на OpenStack.
+											p.
+												В то же время использование OpenStack сопряжено с рядом вызовов: сложность и отсутствие четкой инструкции, тяжелая
+												документация, дефицит кадров, умеющих работать с платформой. Однако OpenStack остается зрелым стандартом с открытым
+												исходным кодом для построения приватных облаков. Забегая вперед: именно OpenStack сыграет ключевую роль
+												в импортозамещении 2022 г.
+								.timeline-step.timeline-step--9
 									.timeline-step__top
 										.timeline-step__year 2014
 											.timeline-step__line
 										.timeline-step__title Контейнеризация меняет правила
 									.timeline-step__card
-										.timeline-step__text
-											p.
-												Контейнеризация <a href="https://storage.cnews.ru/articles/2016-12-02_netapp_innovation_2016_vzglyad_v_budushchee_shd" target="_blank">помогла</a> виртуальным
-												машинам эволюционировать, предлагая изоляцию приложений на уровне операционной системы, а не аппаратной платформы. 2014 г. стал переломным
-												для рынка: появление и популяризация инструментов для разработки и запуска программ Docker и Kubernetes кардинально изменили подход
-												к созданию софта. В PaaS-решения активно интегрируются эти технологии, и разработчики получают стандартизированную, масштабируемую
-												и управляемую среду для развертывания приложений, что значительно ускоряет цикл вывода продуктов на рынок.
-											p.
-												Российские провайдеры «Яндекс», VK, MTS начинают добавлять управляемые базы данных, очереди и сервисы оркестрации.
-												Меняются требования к PaaS: платформы должны управлять не только виртуальными машинами, но и <a href="https://www.jetinfo.ru/news/cnews-analytics-i-infosistemy-dzhet-issledovali-proniknovenie-kontejnernyh-tehnologij-v-it-landshaft-kompanij/" target="_blank">контейнерами</a>.
-									.timeline-step__card
-										.timeline-step__image-wrapper
-											+picture('paas/1', 'jpg', 'timeline-step__image', '')
+										.timeline-step__text.
+											Контейнеризация <a href="https://storage.cnews.ru/articles/2016-12-02_netapp_innovation_2016_vzglyad_v_budushchee_shd" target="_blank">помогла</a> виртуальным
+											машинам эволюционировать, предлагая изоляцию приложений на уровне операционной системы, а не аппаратной платформы. 2014 г. стал переломным
+											для рынка: появление и популяризация инструментов для разработки и запуска программ Docker и Kubernetes кардинально изменили подход
+											к созданию софта. В PaaS-решения активно интегрируются эти технологии, и разработчики получают стандартизированную, масштабируемую
+											и управляемую среду для развертывания приложений, что значительно ускоряет цикл вывода продуктов на рынок.
+										.timeline-step__text.
+											Российские провайдеры «Яндекс», VK, МТС начинают добавлять управляемые базы данных, очереди и сервисы оркестрации.
+											Меняются требования к PaaS: платформы должны управлять не только виртуальными машинами, но и <a href="https://www.jetinfo.ru/news/cnews-analytics-i-infosistemy-dzhet-issledovali-proniknovenie-kontejnernyh-tehnologij-v-it-landshaft-kompanij/" target="_blank">контейнерами</a>.
 								.timeline-step.timeline-step--full-image.timeline-step--10
 									.timeline-step__card
 										.timeline-step__image-wrapper
-											+picture('paas/2', 'jpg', 'timeline-step__image', '')
+											+picture('paas/1', 'jpg', 'timeline-step__image', '')
 								.timeline-step.timeline-step--11
 									.timeline-step__top
 										.timeline-step__year 2019–2021
 											.timeline-step__line
 										.timeline-step__title PaaS становится конкурентным преимуществом
 									.timeline-step__card
-										.timeline-step__text.
-											Бизнес осознает, что скорость вывода продукта на рынок — ключевой фактор успеха.
-											PaaS <a href="https://www.cnews.ru/news/line/2020-11-19_issledovanie_iksconsulting_v_2019" target="_blank">перестает</a> быть
-											нишевой технологией для стартапов и становится массовым инструментом. <br>
-											Крупные российские провайдеры (Yandex.Cloud, VK Tech, Cloud.ru) начинают активно дорабатывать платформенные
-											сервисы. Важно предоставить не просто «голые» виртуальные машины, а управляемые базы данных,
-											инструменты аналитики больших данных и сервисы машинного обучения.
 										.timeline-step__text
 											p.
-												Разработчики получают доступ к экосистеме продуктов, сокращающей время выхода на рынок новых цифровых решений.
+												Бизнес осознает, что скорость вывода продукта на рынок &mdash; ключевой фактор успеха.
+												PaaS <a href="https://www.cnews.ru/news/line/2020-11-19_issledovanie_iksconsulting_v_2019" target="_blank">перестает</a> быть
+												нишевой технологией для стартапов и становится массовым инструментом.
+											p.
+												Крупные российские провайдеры (Yandex.Cloud, VK Tech, Cloud.ru) начинают активно дорабатывать платформенные
+												сервисы. Важно предоставить не просто «голые» виртуальные машины, а управляемые базы данных,
+												инструменты аналитики больших данных и сервисы машинного обучения. Разработчики получают доступ к экосистеме продуктов, сокращающей время выхода на рынок новых цифровых решений.
 												Компании из финтеха, ритейла и других секторов массово переходят на платформенные сервисы, чтобы ускорить
 												разработку и сократить издержки.
-											//.timeline-step__image-wrapper
-												+picture('paas/3', 'jpg', 'timeline-step__image', '')
+								.timeline-step.timeline-step--pointer.timeline-step--24
+									.timeline-step__top
+										.timeline-step__year 2020–2025
+											.timeline-step__line
+										.timeline-step__title РТК-ЦОД развивает крупнейшую сеть дата-центров России
+									.timeline-step__card
+										.timeline-step__image-wrapper
+											+picture('paas/3', 'jpg', 'timeline-step__image', '')
+										.timeline-step__text
+											p.
+												Спрос на платформенные и инфраструктурные облачные сервисы на российском рынке растет взрывными темпами.
+												Главные драйверы &mdash; это увеличение объемов данных, развитие ИИ и повышение требований к информационной
+												безопасности.
+											p.
+												Отвечая на этот запрос, РТК-ЦОД предлагает заказчикам готовую ИТ-инфраструктуру
+												«под ключ» &mdash; от PaaS и SaaS до корпоративного облака. Компания на протяжении 6 лет занимает первое
+												место в рейтингах «Рынок коммерческих ЦОД в России» CNews Analytics 2020-2025 гг.
+												В геораспределенной сети РТК-ЦОД 26 дата-центров, 27,8&nbsp;тыс. стоек общей мощностью 235 МВт – это
+												инфраструктура, которая позволяет бизнесу и госструктурам сразу получать отказоустойчивый облачный
+												фундамент для работы и дальнейшего масштабирования.
 								.timeline-step.timeline-step--12
 									.timeline-step__top
 										.timeline-step__year 2022–н.в.
@@ -633,38 +450,84 @@ block main
 										.timeline-step__title «Великий исход» и ИИ как катализатор развития PaaS-решений
 									.timeline-step__card
 										.timeline-step__image-wrapper
-											+picture('paas/4', 'jpg', 'timeline-step__image', '')
+											+picture('paas/2', 'jpg', 'timeline-step__image', '')
 										.timeline-step__text
 											p.
 												Уход с российского рынка Atlassian, GitLab и другого популярного программного обеспечения для
 												разработки <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2024/articles/paas_samyj_bystrorastushchij_segment" target="_blank">стимулирует</a> спрос
-												на отечественные аналоги в составе PaaS. Рынок приходит к пониманию, что PaaS — это не просто базы данных,
+												на отечественные аналоги в составе PaaS. Рынок приходит к пониманию, что PaaS &mdash; это не просто базы данных,
 												а полноценная среда для разработки «под ключ».
 											p.
 												Одновременно с этим взрывной рост популярности искусственного интеллекта создает спрос на специализированные
 												платформы (ML PaaS). Российские провайдеры фокусируются на создании комплексных решений, включающих инструменты
 												для работы с данными, машинного обучения и обеспечения безопасности, что делает их ключевыми игроками
 												в новой цифровой реальности.
+								.timeline-step.timeline-step--pointer.timeline-step--26
+									.timeline-step__top
+										.timeline-step__year 2026
+											.timeline-step__line
+										.timeline-step__title Российский рынок облаков растет на&nbsp;30% в&nbsp;год
+									.timeline-step__card
+										.timeline-step__image-wrapper
+											+picture('paas/4', 'jpg', 'timeline-step__image', '')
+										.timeline-step__text.
+											Рынок облаков в России растет на 30% в год, заметно опережая среднемировой темп в 20%. Такая динамика
+											сформировала запрос бизнеса не просто на мощности, а на инфраструктурного партнера, способного действовать
+											без задержек. Ответом стало выделение «Турбо Облака» — отдельного B2B-провайдера полного цикла
+											в структуре «Ростелекома». Сегодня облачный провайдер содержит в себе более 500 тыс. виртуальных процессоров,
+											свыше 60 сервисов и 20 геораспределенных площадок в пяти федеральных округах, закрывая критические
+											потребности бизнеса в скорости, гибкости и безопасности.
 							.timeline__page.timeline__page--3
-								+picture('clouds/1', 'png', 'timeline__cloud timeline__cloud--3')
+								.timeline__progress.timeline__progress--3.progress
+									.progress__line
+									span 2006
+									span 2007
+									span 2008
+									span 2011
+									span 2012
+									span 2013
+									span 2014
+									span 2015
+									span 2016
+									span 2020
+									span 2022
+									span 2023
+									span 2024
+									span 2024
+									span 2026
 								+icon('square-3', 'timeline__square timeline__square--4')
 								.timeline-step.timeline-step--13
 									.timeline-step__top
 										.timeline-step__year 2007–2008
 											.timeline-step__line
-										.timeline-step__title Рождение&nbsp;первых&nbsp;российских <br> SaaS-решений
+										.timeline-step__title Зарождение технологии SaaS, недоверие российских пользователей
 									.timeline-step__card
 										.timeline-step__text.
 											Глобальный финансовый кризис 2008 г. <a href="https://telecom.cnews.ru/reviews/free/2008/articles/saas.shtml" target="_blank">приводит</a>
 											к необходимости оптимизации расходов на ИТ. Так появились первые онлайн-сервисы, которые способны решать конкретные бизнес-задачи
-											без серьезного перехода в более тяжелые ERP-системы или тотального переноса инфраструктуры.
-										.timeline-step__text.
-											По модели SaaS активно пошли приложения, связанные с поддержкой коммуникации, совместной работы и контента.
-											С помощью SaaS-решений автоматизируют управление персоналом,
-											кадровую, складскую работу и отслеживание проектной деятельности. Из отечественных решений «СКБ Контур» развивает электронную
-											отчетность, также на рынок выходит независимый проект «МойСклад» (складской учет) и набор «Мегаплан» (списки дел,
-											планирование задач и CRM-система).
-								.timeline-step.timeline-step--full-image.timeline-step--14
+											без серьезного перехода на более тяжелые ERP-системы или тотального переноса инфраструктуры. Однако новая технология не сразу прижилась в России.
+											<br>
+											В этот период основными препятствиями для внедрения
+											облачных технологий были недоверие бизнеса к размещению данных на сторонних серверах, отсутствие
+											развитой инфраструктуры электронного документооборота и слабое понимание преимуществ аренды софта.
+											На всю страну приходилось всего порядка 2 тыс. организаций, использующих деловые приложения по модели SaaS,
+											что крайне мало даже для сферы малого и среднего предпринимательства. В итоге о новой технологии активно
+											рассказывают западные вендоры.
+								.timeline-step.timeline-step--pointer.timeline-step--23
+									.timeline-step__top
+										.timeline-step__year 2008-2011
+											.timeline-step__line
+										.timeline-step__title Первые эксперименты и рождение <br> первых российских SaaS-решений
+									.timeline-step__card
+										.timeline-step__text
+											p.
+												По модели SaaS пошло развитие приложений, связанных с поддержкой коммуникации, совместной работы и контента.
+												С помощью SaaS-решений пробуют автоматизировать управление персоналом, кадровую, складскую работу
+												и отслеживание проектной деятельности.
+											p.
+												Из отечественных решений «СКБ Контур» развивает электронную отчетность, также на рынок выходит
+												независимый проект «МойСклад» (складской учет) и набор «Мегаплан» (списки дел, планирование задач и CRM-система).
+								//.timeline-step.timeline-step--full-image.timeline-step--14
 									.timeline-step__card
 										.timeline-step__image-wrapper
 											+picture('saas/1', 'jpg', 'timeline-step__image', '')
@@ -672,53 +535,72 @@ block main
 									.timeline-step__top
 										.timeline-step__year 2011–2016
 											.timeline-step__line
-										.timeline-step__title Пакетный подход и интеграция сервисов
+										.timeline-step__title Активный маркетинг облаков, пакетный подход и интеграция сервисов
 									.timeline-step__card
-										.timeline-step__text.
-											В 2011 г. в Россию приходит SaaS-гигант Microsoft со своим продуктом Microsoft Office 365, распространением
-											которого <a href="https://www.cnews.ru/news/top/microsoft_zapustila_oblachnyj_office" target="_blank">занимаются</a> компании
-											«Вымпелком» и «СКБ Контур». Рынок корпоративных приложений движется в онлайн, начинается экстенсивный рост SaaS-решений в России.
-											В 2014 г. прибыль от поставки облачных решений <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2013/articles/saas_v_7_raz_operedil_rynok_it" target="_blank">выросла</a> на 20–35%
-											в рублевом исчислении. Согласно рейтингу CNews, совокупные доходы 25 крупнейших поставщиков облаков увеличились на 29%.
-										.timeline-step__text.
-											С ростом перехода корпоративной инфраструктуры в SaaS-контур у бизнеса формируется запрос на интеграцию таких приложений
-											между собой для более эффективной совместной работы. «Яндекс» развивает платформу для единой аутентификации во все
-											свои сервисы, а Softline пытается создать каталог приложений. Интеграторы формируют пакетные предложения, когда
-											за определенную сумму предоставляет сразу несколько приложений под запрос заказчика.
+										.timeline-step__text
+											p.
+												Несмотря на то, что рынок уже несколько лет делал шаги к освоению новой технологии, российский
+												бизнес не спешит в облака: пользователи с недоверием относятся к хранению корпоративных данных на внешних серверах.
+											p.
+												В 2011 г. в Россию приходит SaaS-гигант Microsoft со своим продуктом Microsoft Office 365, распространением
+												которого <a href="https://www.cnews.ru/news/top/microsoft_zapustila_oblachnyj_office" target="_blank">занимались</a> поначалу, например, компании «Крок»,
+												Softline, «Вымпелком» и «СКБ Контур». Ситуация начинает меняться: силами партнеров западные вендоры
+												проводят масштабную маркетинговую и просветительскую кампанию, рассказывая о преимуществах
+												и безопасности SaaS-продуктов. Реакцией на это стало законодательное закрепление требования
+												к зарубежным компаниям хранить персональные данные в России и экстенсивный рост SaaS-решений в России.
+												В 2014 г. прибыль от поставки облачных
+												решений <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2013/articles/saas_v_7_raz_operedil_rynok_it" target="_blank">выросла</a> на 20–35%
+												в рублевом исчислении. Согласно рейтингу CNews, совокупные доходы 25 крупнейших поставщиков облаков увеличились на 29%.
+										.timeline-step__text
+											p.
+												С ростом перехода корпоративной инфраструктуры в SaaS-контур у бизнеса формируется запрос на интеграцию
+												таких приложений между собой для более эффективной совместной работы. «Яндекс» развивает платформу
+												для единой аутентификации во все свои сервисы, а Softline пытается создать каталог приложений.
+												Интеграторы формируют пакетные предложения, когда за определенную сумму предоставляет сразу несколько
+												приложений под запрос заказчика.
+										.timeline-step__image-wrapper
+											+picture('saas/1', 'jpg', 'timeline-step__image', '')
 								.timeline-step.timeline-step--full-image.timeline-step--17
 									.timeline-step__card
 										.timeline-step__image-wrapper
 											+picture('saas/2', 'jpg', 'timeline-step__image', '')
-								.timeline-step.timeline-step--pointer.timeline-step--16
+								.timeline-step.timeline-step--16
 									.timeline-step__top
 										.timeline-step__year 2020
 											.timeline-step__line
-										.timeline-step__title Пандемия и удаленные рабочие места
+										.timeline-step__title Пандемия и удаленные <br> рабочие места
 									.timeline-step__card
-										.timeline-step__text
-											p.
-												Ковидный год <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2020/articles/pandemiya_rasshirila_dorogu_v_oblaka" target="_blank">стал</a> «золотым временем»
-												для SaaS, в том числе и в России. Спрос на Zoom, Teams и отечественные сервисы конференц-связи, такие как Webinar, взлетел до небес.
-												Бизнес экстренно переводит сотрудников на «удаленку», и сервис виртуальных рабочих столов (DaaS/VDI) из экзотики превращается
-												в обязательное условие для сохранения непрерывности бизнеса.
-											p.
-												VDI — это технология, позволяющая разместить операционную систему и все рабочие приложения сотрудника не на его физическом
+										.timeline-step__text.
+											Ковидный год <a href="https://www.cnews.ru/reviews/oblachnye_servisy_2020/articles/pandemiya_rasshirila_dorogu_v_oblaka" target="_blank">стал</a> «золотым временем»
+											для SaaS, в том числе и в России. Спрос на Zoom, Teams и отечественные сервисы конференц-связи, такие как Webinar, взлетел до небес.
+											Бизнес экстренно переводит сотрудников на «удаленку», и сервис виртуальных рабочих столов (DaaS/VDI) из экзотики превращается
+											в обязательное условие для сохранения непрерывности бизнеса.
+										.timeline-step__text.
+												VDI &mdash; это технология, позволяющая разместить операционную систему и все рабочие приложения сотрудника не на его физическом
 												ноутбуке или ПК, а на мощном сервере в дата-центре, локальном или облачном. Сотрудник же получает доступ к своему
-												виртуальному рабочему месту через интернет с любого устройства — от личного компьютера до планшета.
+												виртуальному рабочему месту через интернет с любого устройства &mdash; от личного компьютера до планшета.
 								.timeline-step.timeline-step--18
 									.timeline-step__top
 										.timeline-step__year 2022–2024
 											.timeline-step__line
 										.timeline-step__title Импортозамещение
 									.timeline-step__card
-										.timeline-step__text.
-											Уход западных SaaS-лидеров, таких как Microsoft, Oracle, SAP, Atlassian, Zoom, создал вакуум на рынке. Рынок SaaS-решений,
-											особенно используемых для проектной работы, впервые за многие годы показал стагнацию, так как мгновенно заместить
-											функциональность Jira или Miro оказалось невозможно.
-										.timeline-step__text.
-											Однако уже к 2023 г. российские разработчики начали догонять
-											запросы рынка. Начался «ренессанс» отечественного ПО: компании, типа MindBox, MarketGuru и пр., активизировали
-											развитие своих продуктов, рост спроса на аналитику для маркетплейсов.
+										.timeline-step__text
+											p.
+												Уход западных SaaS-лидеров, таких как Microsoft, Oracle, SAP, Atlassian, Zoom, привел к образованию свободных ниш на рынке.
+												До этого на фоне взлета популярности SaaS-решений в пандемию многие компании внедрили иностранные
+												продукты в свою инфраструктуру &mdash; это, например, облачная ERP SAP Hana, которую активно продвигали
+												в 2021-2022 годах &mdash; и от которой потом резко отключили всех, кто успел перейти.
+											p.
+												Однако уже к 2023 г. российские разработчики начали догонять
+												запросы рынка. Начался «ренессанс» отечественного ПО: компании активизировали
+												развитие своих продуктов, рост спроса на аналитику для маркетплейсов.
+										.timeline-step__image-wrapper
+											+picture('saas/3', 'jpg', 'timeline-step__image', '')
+								.timeline-step.timeline-step--full-image.timeline-step--25
+									.timeline-step__card
+										.timeline-step__image-wrapper
+											+picture('saas/4', 'jpg', 'timeline-step__image', '')
 								.timeline-step.timeline-step--19
 									.timeline-step__top
 										.timeline-step__year 2025–по н.в.
@@ -732,35 +614,250 @@ block main
 										.timeline-step__text.
 											Происходит усиление концентрации рынка: восемь крупнейших компаний формируют более половины совокупной выручки.
 											В этих условиях средним игрокам становится все сложнее удерживать позиции без четкой специализации на отдельных нишах.
-						.hero__trends.trends
-							.trends__title
-								span Тренды
-								+icon('arrow-trends', 'trends__icon')
-							.trends__wrapper
-								.trends-card
-									.trends-card__date 2007–2010
-									.trends-card__text Виртуализация как база. Перенос физических серверов в виртуальную среду
-								.trends-card
-									.trends-card__date 2011–2013
-									.trends-card__text Гибридные модели. Интеграция приватных и публичных облаков, поиск баланса безопасности и гибкости
-								.trends-card
-									.trends-card__date 2014–2016
-									.trends-card__text DevOps и контейнеризация. Автоматизация разработки и внедрение микросервисной архитектуры
-								.trends-card
-									.trends-card__date 2017–2019
-									.trends-card__text Рост спроса на сервисы Big Data, аналитики и машинного обучения как услуги
-								.trends-card
-									.trends-card__date 2020
-									.trends-card__text Пандемия провоцирует массовый переход на удаленную работу и стимулирует цифровизацию компаний
-								.trends-card
-									.trends-card__date 2021
-									.trends-card__text Дефицит GPU. Кризис производства чипов и взрывной спрос на облачные мощности для ИИ
-								.trends-card
-									.trends-card__date 2022
-									.trends-card__text Великий исход западных вендоров из России, отток клиентов к российским провайдерам
-								.trends-card
-									.trends-card__date 2023
-									.trends-card__text Популярность снова приобретают гибридные и on-prem-решения из-за ужесточения требований регуляторов к локализации данных
-								.trends-card
-									.trends-card__date 2025
-									.trends-card__text Взросление и консолидация рынка. Крупные игроки скупают нишевых провайдеров, чтобы расширить клиентскую базу и технологический стек
+				.history
+					.history__wrapper
+						.history__scroll
+							//.history__title
+								span История облачного рынка в лицах и цитатах
+								+icon('arrow-trends', 'history__icon')
+							.history__items
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/2', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Константин Симонов
+											.history-item__position ИТ-директор DataSpace
+									.history-item__text
+										p.
+											Несмотря на стратегию инфраструктурного суверенитета и стремительное развитие GPU-ориентированных сервисов,
+											ключевым драйвером роста облачной индустрии в 2026 году остается глобальный дефицит и экспоненциальный
+											рост цен на "железо". В такой среде облако становится не инструментом оптимизации
+											и экономии, а способом выживания.
+										p.
+											Парадигма гибридных облачных инфраструктур максимально гибко отвечает практически любым потребностям
+											заказчиков, а концепция "мультиклауд" позволяет нивелировать риски и достигать приемлемых показателей
+											надежности и доступности ИТ-инфраструктуры.
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('clients/28', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Максут Шадаев
+											.history-item__position Министр цифрового развития РФ
+									.history-item__text
+										p.
+											В ближайшие годы госсектор будет играть значительную роль в развитии отечественного облачного рынка.
+											Вклад госсектора в российскую экономику очень большой &mdash; его доля на уровне 40-50%. Государственные организации
+											и компании с государственным участием сейчас активно цифровизуются, предлагая гражданам все большее количество
+											сервисов в онлайн-режиме. Облака, естественно, будут помогать этому цифровому развитию.
+										p.
+											<a href="https://www.cnews.ru/news/top/2021-11-09_platforma_gosteh_pozvolit" target="_blank">CNews Forum</a>, 2021
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/8', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Николай Прянишников
+											.history-item__position Главный коммерческий директор «Группы Астра»
+									.history-item__text
+										p.
+											Благодаря усилиям компании по популяризации облачной модели использования ИТ, отмечается рост интереса
+											регионов к облачным сервисам. Заключены первые соглашения по использованию Office 365 как с коммерческими,
+											так и с государственными организациями.
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/1', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Александр Обухов
+											.history-item__position Гендиректор компании «Турбо Облака»
+									.history-item__text
+										p.
+											Искусственный интеллект перестал быть экспериментом — сегодня это промышленная реальность, требующая от
+											инфраструктуры предельной гибкости и скорости. Бизнес все чаще отказывается от капитальных затрат в пользу
+											облачных платформ, способных масштабироваться под любую задачу. В конце 2025 года компания «Турбо Облако»
+											создана как B2B-платформа, где мы совмещаем надежность крупнейшего игрока с культурой и энергией стартапа.
+											Наша цель — чтобы клиенты не догоняли тренды, а задавали их, получая доступ к мощностям для ИИ, платформенным
+											сервисам и управлению распределенной инфраструктурой без рисков долгостроя и с предсказуемой экономикой.
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/6', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Михаил Лобоцкий
+											.history-item__position Исполняющий обязанности генерального директора Cloud.ru
+									.history-item__text
+										p.
+											В 2025 году спрос на наши продукты вырос в среднем на 40-70% &mdash; прежде всего за счет инфраструктуры и сервисов для работы
+											с искусственным интеллектом в среде Evolution AI Factory. Компании все чаще переходят от пилотов к полноценному
+											внедрению искусственного интеллекта во всю цепочку создания ценности.
+										p.
+											Наша задача &mdash; сохранять технологическое лидерство
+											и при этом удерживать тарифы доступными, чтобы ИИ становился рабочим инструментом для массового рынка, а не нишевой инновацией.
+											В 2026 мы продолжим расширять продуктовый портфель и укреплять доверие к бренду <a href="https://cloud.ru/" target="_blank">Cloud.ru</a> со стороны заказчиков.
+								.history-item.history-item--10
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('portraits/29', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Давид Мартиросов
+											.history-item__position Генеральный директор РТК-ЦОД
+									.history-item__text
+										p.
+											РТК-ЦОД &mdash; крупнейший игрок на российском рынке дата-центров, у нас накоплен огромный опыт работы с физической
+											ИТ-инфраструктурой и предоставления интеграторских услуг. Используя этот опыт, мы на базе наших дата-центров
+											активно развиваем сервисы, связанные с виртуальной инфраструктурой: облака, хранение и восстановление данных,
+											инференс ИИ-моделей и многое другое. Выбранный подход позволяет справляться с одним из наиболее серьезных
+											вызовов, стоящих перед отраслью, &mdash; резким снижением темпа ввода новых серверных стоек.
+										p.
+											В ситуации, когда новый дата-центр окупается спустя 10-12 лет и многие инвесторы просто не готовы вкладывать
+											деньги на такой срок, дополнительные услуги позволяют сдвинуть точку окупаемости вложений влево на 3-4 года.
+											В результате повышается инвестиционная привлекательность проектов, без которых невозможно
+											цифровое развитие страны.
+								.history-item.history-item--11
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/3', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Дмитрий Чернышенко
+											.history-item__position Заместитель председателя правительства Российской Федерации
+									.history-item__text
+										p.
+											«Гостех» &mdash; это облачное платформенное решение с единой средой разработки, с сервисными системами,
+											с маркетплейсом для переиспользования лучших сервисов.
+										p.
+											«Гостех» &mdash; это обновляемая платформа, PaaS, ее ядро было разработано «Сбером».
+											А «Гособлако» &mdash; инфраструктурная часть, IaaS, заточенный под PaaS. Мы видим огромные выгоды
+											для государства и для правительства в том, что мы получаем постоянно обновляемое ядро. Но при этом нужно
+											понимать, что «Гостех» &mdash; абсолютно государственная система. В ней присутствуют сервисы, необходимые
+											именно для госуслуг федеральных и региональных ведомств и муниципалитетов.
+										p.
+											<a href="https://www.cnews.ru/articles/2021-08-30_vitsepremer_dmitrij_chernyshenko" target="_blank">Интервью</a> CNews, 2021
+								.history-item.history-item--12
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/4', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Михаил Осеевский
+											.history-item__position Президент «Ростелекома»
+									.history-item__text
+										p.
+											Крупные российские города сегодня сталкиваются с нехваткой электрических мощностей.
+										p.
+											Сейчас активно обсуждается, где и на каком расстоянии от Москвы реально построить еще один масштабный дата-центр.
+											Последний ЦОД мощностью в 40 мегаватт обошелся компании в 40 млрд руб., следующий проект оценивается уже
+											в 100 млрд руб., так как предполагает мощность до 100 мегаватт, и компании потребуются партнеры для реализации проекта.
+										p.
+											Что касается окупаемости, если нам удается реализовывать продукты, связанные с облачными вычислениями, можно
+											окупить такой ЦОД через 5-7 лет. Если это просто предоставление мест в аренду &mdash; через 10 лет. Обычно это микс-схемы»
+										p.
+											<a href="https://www.cnews.ru/news/top/2026-04-09_minpromtorg_anonsiroval" target="_blank">Конференция Data Fusion</a> 2026
+								.history-item.history-item--13
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/5', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Дмитрий Григоренко
+											.history-item__position Заместитель председателя правительства России &mdash; руководителя аппарата правительства
+									.history-item__text
+										p.
+											Поддержка развития отечественных ИИ-моделей и внедрения сервисов на базе них необходима для обеспечения
+											технологической независимости. Это вопрос безопасной и стабильной работы важнейшей инфраструктуры
+											и ключевых систем. Планируется, что российские модели ИИ будут использоваться на особо значимых
+											объектах критической информационной инфраструктуры госсектора, а также в государственных информационных
+											системах с чувствительной информацией.
+										p.
+											Ключевая цель регулирования в том, чтобы сформировать условия для развития и стимулирования внедрения уже
+											действующих отечественных ИИ-решений и создания новых. Положений об обязательном использовании
+											российских ИИ-моделей, в том числе в частном секторе законопроект не содержит.
+										p.
+											<a href="https://www.cnews.ru/articles/2026-06-17_vajbkoding_ugroza_tsifrovomu_suverenitetu" target="_blank">Статья</a> CNews, 2026
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/7', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Евгений Абакумов
+											.history-item__position ИТ-директор Росатома
+									.history-item__text
+										p.
+											Наш основной инфраструктурный проект связан с внедрением корпоративного облака. В его
+											основе &mdash; импортонезависимые продукты российских разработчиков. В этом проекте используется
+											ЦОД «Калининский», который был недавно открыт рядом с Калининской АЭС в городе Удомле. На какой стадии проект?
+											Стойки стоят, решение развернуто, и мы готовы предоставлять пользователям сервисы на российских программных продуктах.
+										p.
+											<a href="https://www.cnews.ru/reviews/tsifrovizatsiya_promyshlennosti_2022/interviews/evgenij_abakumov" target="_blank">Интервью CNews</a>, 2022
+								.history-item.history-item--14
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/9', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Наталья Касперская
+											.history-item__position Президент группы InfoWatch, председатель правления АРПП «Отечественный софт»
+									.history-item__text
+										p.
+											Я безопасник, я к облакам отношусь плохо, потому что любое облако &mdash; это сервера, которые находятся где‑то
+											не у клиента в инфраструктуре. Это «где‑то» клиент не может контролировать. И ни в одном соглашении с облачным
+											провайдером нет никаких гарантий. Облачные провайдеры стараются от гарантий отвертеться. Да, они говорят:
+											есть защита, они обещают услуги, поддержку, но гарантий не дают. Поэтому если у клиента что‑то случилось,
+											он может в рамках лимитированной ответственности предъявлять иски к провайдеру, но облачные сервисы
+											будут от них отбиваться. И дальше начнется изнурительная волокита.
+										p.
+											Очень хорошая «прививка против облаков» была сделана в 2022 году, когда несколько компаний перенесли
+											чувствительные и важные сервисы в большое облако, а потом это облако в одночасье было отключено.
+											Очень нехорошая история. Я, например, не вижу, чтобы многие компании переносили инфраструктуру в облака.
+											Я бы сказала, что сейчас, скорее, обратная тенденция &mdash; многие компании возвращаются к собственной ИТ‑инфраструктуре.
+										p.
+											Интервью, 2023
+								.history-item.history-item--15
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/10', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Сергей Анохин
+											.history-item__position Гендиректор ПАО «ВымпелКом»
+									.history-item__text
+										p.
+											Серьезная ставка делается на B2B-направление, прежде всего, на облачный бизнес. Это и развитие инфраструктуры,
+											и развитие и внедрение собственных решений ИИ.
+										p.
+											Позицию на рынке облачных услуг в Билайн оценивают, как 7-ю, с долей порядка 4%. И планируют развивать
+											продуктовый функционал с целью войти в Топ-5 для крупных и средних клиентов. Сейчас наблюдается замедление
+											темпов роста классических облачных нагрузок с 35% до примерно 24%. Зато спрос на GPU-нагрузки опережает
+											динамику классического облака примерно в 3 раза.
+										p.
+											Телеком-бизнес дает Билайну 80% выручки, но нетелеком-бизнес растет большими темпами, поэтому компания
+											фокусируется на его развитии: цифровизация, облака, решения на базе ИИ.
+										p.
+											Интервью, 2025
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/12', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Глеб Лигачев
+											.history-item__position ИТ-директор ЕЭС
+									.history-item__text
+										p.
+											Облака несут с собой множество рисков, особенно для промышленных предприятий и компаний, которые используют
+											технологии для внутренней работы. Во-первых, облако сильно подвержено государственным войнам. Во-вторых,
+											если компания сделала что-то только для себя, то в случае сбоя она будет оперативно восстанавливать
+											работоспособность своей системы. А в случае облака провайдер в первую очередь будет решать проблемы ключевых клиентов.
+										p.
+											<a href="https://yandex-cloud.cnews.ru/" target="_blank">CNews Баттл</a>, 2019
+								.history-item
+									.history-item__top
+										.history-item__image-wrapper
+											+picture('authors/13', 'jpg', 'history-item__image', '')
+										.history-item__person
+											.history-item__name Алексей Клепиков
+											.history-item__position Вице-президент по информационным технологиям «Ингосстрах»
+									.history-item__text
+										p.
+											Для малых и средних предприятий облако незаменимо. А крупным компаниям оно дает возможность моментально получить
+											необходимые ресурсы и при этом избежать огромных инвестиций в то, что используется эпизодически.
+											Выход — в использовании гибридных инфраструктур, которые позволяют сохранить критически важные приложения
+											внутри компании, но при этом нужно иметь возможность использовать дополнительные мощности.
+										p.
+											<a href="https://yandex-cloud.cnews.ru/" target="_blank">CNews Баттл</a>, 2019

@@ -63,7 +63,6 @@
 	&__items {
 		height: 500px;
 		overflow-y: auto;
-		scroll-behavior: smooth;
 
 		&::-webkit-scrollbar {
 			width: 0;

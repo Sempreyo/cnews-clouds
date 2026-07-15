@@ -3,6 +3,8 @@
 //= ./libs/splittype.min.js
 //= ./libs/gsap.min.js
 //= ./libs/ScrollTrigger.min.js
+//= ./libs/ScrollToPlugin.min.js
+//= ./libs/Observer.min.js
 
 /* Common */
 //= ./partials/swiper-init.js

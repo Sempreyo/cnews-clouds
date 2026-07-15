@@ -1,22 +1,114 @@
 .trends-card {
-	position: relative;
-	min-width: 320px;
-	background-color: $color-primary;
-	border-radius: 0 18px 18px 18px;
+	$parent: &;
 
-	&__date {
+	position: relative;
+	width: 380px;
+	flex-shrink: 0;
+	background-color: $color-primary;
+	border-radius: 18px;
+
+	&--1 {
+		width: 475px;
+		margin-left: 205px;
+
+		#{$parent}__line + #{$parent}__line {
+			left: unset;
+			right: 21px;
+		}
+	}
+
+	&--2 {
+		width: 335px;
+		margin-left: 789px;
+
+		#{$parent}__line + #{$parent}__line {
+			left: unset;
+			right: 26px;
+		}
+	}
+
+	&--3 {
+		width: 335px;
+		margin-left: 549px;
+
+		#{$parent}__line + #{$parent}__line {
+			left: unset;
+			right: 26px;
+		}
+	}
+
+	&--4 {
+		width: 335px;
+		margin-left: 540px;
+
+		#{$parent}__line + #{$parent}__line {
+			left: unset;
+			right: 20px;
+		}
+	}
+
+	&--5 {
+		margin-left: 108px;
+	}
+
+	&--6 {
+		margin-left: 341px;
+
+		#{$parent}__line {
+			left: unset;
+			right: 15px;
+		}
+	}
+
+	&--7 {
+		width: 300px;
+		margin-left: 116px;
+	}
+
+	&--8 {
+		margin-left: 61px;
+	}
+
+	&--9 {
+		width: 340px;
+		margin-left: 59px;
+
+		#{$parent}__line {
+			left: 95px;
+		}
+	}
+
+	&__line {
 		position: absolute;
-		top: -16px;
-		left: 0;
-		height: 32px;
-		border-radius: 20px;
+		top: 100%;
+		left: 15px;
+		width: 1px;
+		height: 57px;
 		background-color: $white;
-		padding: 10px;
-		color: $color-primary;
-		font-weight: 700;
-		font-size: 12px;
-		line-height: 1;
-		text-align: center;
+
+		&::before,
+		&::after {
+			position: absolute;
+			left: -2px;
+			content: "";
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: $white;
+		}
+
+		&::before {
+			top: -2px;
+		}
+
+		&::after {
+			bottom: -2px;
+		}
+
+		&--top {
+			top: unset;
+			bottom: 100%;
+		}
 	}
 
 	&__text {

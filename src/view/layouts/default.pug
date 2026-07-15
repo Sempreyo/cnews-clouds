@@ -16,10 +16,11 @@ html(lang='ru')
 	body
 		main.main
 			block main
+		.button-up
+			+icon('arrow-down')
 
 	include ../blocks/popup
 
-	//script(src='https://unpkg.com/lenis@1.3.21/dist/lenis.min.js')
 	script(src="js/main.min.js" defer)
 
 	block scripts

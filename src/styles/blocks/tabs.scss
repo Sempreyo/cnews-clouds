@@ -1,6 +1,40 @@
 .tabs {
+	$parent: &;
+
 	position: relative;
-	z-index: 1;
+	z-index: 6;
+	transition: transform 0.3s ease, top 0.3s ease;
+
+	&.fixed {
+		position: fixed;
+		top: 0;
+		//left: calc((100vw - 1552px + 40px) / 2);
+		//right: calc((100vw - 1552px + 40px) / 2);
+		left: 0;
+		right: 0;
+		padding: 10px calc((100vw - 1552px + 40px) / 2) 30px calc((100vw - 1552px + 40px) / 2);
+		background: linear-gradient(180deg, rgba(53, 133, 217, 1) 0%, rgba(53, 133, 217, 0) 95%);
+		transition: none !important;
+
+		@include max(1570) {
+			left: 20px;
+			right: 20px;
+		}
+
+		#{$parent} {
+			&__title::before {
+				left: calc((100vw - 1552px - 260px) / 2);
+
+				@include max(1850) {
+					left: calc((100vw - 1552px + 40px) / 2);
+				}
+
+				@include max(1570) {
+					left: 0;
+				}
+			}
+		}
+	}
 
 	&__timeline {
 		display: flex;
@@ -86,14 +120,8 @@
 		gap: 15px;
 
 		&--popup {
-			svg {
-				flex-shrink: 0;
-			}
-
 			span {
-				max-width: 262px;
 				font-size: 17px;
-				text-align: left;
 			}
 		}
 	}
@@ -110,6 +138,7 @@
 		gap: 20px;
 		width: 100%;
 		background-color: $color-primary;
+		border: 2px solid $color-primary;
 		padding: 22px;
 		border-radius: 55px;
 		font-size: 29px;
@@ -126,11 +155,13 @@
 
 		&.disabled {
 			background-color: rgba($color-primary, 0.7);
+			border-color: rgba($color-primary, 0);
 			pointer-events: none;
 		}
 
 		&:hover {
 			background-color: rgba($color-primary, 0.7);
+			border-color: rgba($color-primary, 0);
 		}
 	}
 
@@ -142,12 +173,15 @@
 		margin-bottom: 13px;
 		opacity: 0;
 		pointer-events: none;
-		transition: 0.3s ease 0.7s;
+
+		@include max(t) {
+			font-size: 24px;
+		}
 
 		&::before {
 			position: absolute;
 			left: -150px;
-			bottom: 0;
+			//bottom: 0;
 			content: attr(data-text);
 			font-weight: 700;
 			font-size: 184px;
@@ -174,6 +208,7 @@
 	&__text {
 		font-size: 12px;
 		text-align: center;
+		animation: flickerLabels 9s linear infinite;
 
 		@include max(370) {
 			font-size: 10px;

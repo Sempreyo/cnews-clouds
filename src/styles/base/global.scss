@@ -29,12 +29,10 @@ html {
 	-o-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
-	scroll-behavior: smooth;
 }
 
 body {
 	min-height: 100vh;
-	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	font-family: $mainFont;
 	background: $color-background;
@@ -49,10 +47,6 @@ body {
 	-o-font-smoothing: antialiased;
 	-webkit-locale: auto;
 	white-space: normal;
-}
-
-.bottom-overflow {
-	overflow: hidden;
 }
 
 main {

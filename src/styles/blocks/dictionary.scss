@@ -3,7 +3,7 @@
 	opacity: 0;
 	pointer-events: none;
 	max-width: 580px;
-	transition: 0.3s ease 0.7s;
+	transition: 0.3s ease;
 
 	@include max(ti) {
 		max-width: 100%;
@@ -15,7 +15,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 2;
-		background-color: $color-background;
+		background-color: $color-background-2;
 		padding: 0 12px;
 		font-weight: 700;
 		font-size: 13px;
@@ -36,17 +36,25 @@
 		overflow: visible;
 	}
 
-	.swiper-slide {
+	&__slide {
 		padding: 0 50px;
+		height: 57px;
 	}
 
 	&__title {
-		padding: 14px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
 		font-weight: 700;
 		font-size: 17px;
 		text-align: center;
 		text-transform: uppercase;
 		cursor: pointer;
+
+		@include max(t) {
+			font-size: 12px;
+		}
 
 		span {
 			transition: 0.3s ease;

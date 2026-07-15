@@ -18,3 +18,17 @@
 		transform: scale(1);
 	}
 }
+
+@keyframes flickerLabels {
+	0% {
+		color: $white;
+	}
+
+	50% {
+		color: $color-primary;
+	}
+
+	100% {
+		color: $white;
+	}
+}

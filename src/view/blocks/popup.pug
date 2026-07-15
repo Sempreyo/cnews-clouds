@@ -3,107 +3,63 @@
 	.popup__top
 		.popup__button
 			+icon('arrow-down')(width='22', height='22')
-			span История облачного рынка в&nbsp;лицах и&nbsp;цитатах
-	.popup__slider.swiper
-		+icon('square-3', 'popup__square')
-		.swiper-wrapper
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/2', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Константин Симонов
-					.popup__position ИТ-директор DataSpace:
-					.popup__text.
-						Несмотря на стратегию инфраструктурного суверенитета и стремительное развитие GPU-ориентированных сервисов, ключевым драйвером
-						роста облачной индустрии в 2026 году остается глобальный дефицит и экспоненциальный рост цен на "железо". В такой среде
-						облако становится не инструментом оптимизации и экономии, а способом выживания. Парадигма гибридных облачных инфраструктур
-						максимально гибко отвечает практически любым потребностям заказчиков, а концепция "мультиклауд" позволяет нивелировать
-						риски и достигать приемлемых показателей надежности и доступности ИТ-инфраструктуры.
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/7', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Алина Жигалова
-					.popup__position Директор по развитию сервисов ITGlobal.com
-					.popup__text
-						p.
-							В начале 2000-х на международной арене уже существовал Amazon, но если не брать это в расчет, то в 2008 году Россия была
-							впереди всего мира. Microsoft Azure полноценно запустил облако только в 2010, a Google Cloud — в 2012.
-						p.
-							<a href="https://market.cnews.ru/articles/2023-11-22_alina_zhigalovaitglobalcom_my_odnimi" target="_blank">Интервью CNews</a>, 2023
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/1', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Юрий Ларин
-					.popup__position Руководитель направления маркетинга облачных технологий компании Microsoft
-					.popup__text
-						p.
-							Российский рынок SaaS находится в начальной стадии развития, однако будет динамично расти в ближайшие годы
-						p.
-							<a href="https://www.cnconf.ru/articles/rynok_saas_korobki_vymrutchtoby/3" target="_blank">Интервью CNews</a>, 2011
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/3', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Денис Ночевнов
-					.popup__position Директор по новым технологиям и услугам «МегаФона»
-					.popup__text
-						p.
-							Если говорить о классах используемых нами облачных решений, то мы в наибольшей мере используем IaaS. Например, у нас
-							может возникнуть потребность разместить в конкретном регионе серверы, которые будут обслуживать всю Россию.
-						p.
-							Внутренние облака привлекательны для нас не в силу финансовой экономии – эта экономия минимальна.
-						p.
-							Так что здесь речь идет скорее о скорости развертывания решения.
-						p.
-							<a href="https://www.cnews.ru/articles/denis_nochevnov_vnutrennie_oblaka_privlekatelny" target="_blank">Интервью CNews</a>, 2011
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/4', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Александр Чеснавский
-					.popup__position Коммерческий директор MWS
-					.popup__text
-						p.
-							Облачный рынок в широком смысле, с учетом и публичных, и частных облаков, а также гибриды, — сейчас активно растет
-							и показывает один из наибольших темпов роста в целом по ИТ-рынку.
-						p.
-							Когда мы в MWS говорим про IaaS для enterprise-сегмента, мы зачастую имеем в виду облака на условиях
-							заказчика — частные и гибридные инсталляции.
-						p.
-							Для одних нагрузок, особенно чувствительных, это могут быть частные облака, для нагрузок, где важна
-							гибкость, скорость, развертывание и эластичность, — уже облака публичные.
-						p.
-							<a href="https://www.cnews.ru/reviews/rejting_provajderov_iaas_enterprise_2025/interviews/aleksandr_chesnavski" target="_blank">Интервью CNews</a>, 2025
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/5', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Георгий Джабиев
-					.popup__position Директор по развитию бизнеса «Т1 Облако»
-					.popup__text
-						p.
-							Отчуждаемое облако — это ответ на запрос бизнеса на доверие и управляемость. Многие компании хотят использовать преимущества
-							облака, но при этом не готовы передавать инфраструктуру за периметр. Мы даем возможность выстраивать гибридные сценарии,
-							объединять публичные и локальные ресурсы, управлять утилизацией, правами доступа и квотами через единый интерфейс.
-						p.
-							<a href="https://www.mobilecomm.ru/na-cnews-forum-2025" target="_blank">Выступление на CNews Forum</a>, 2025
-			.popup__slide.swiper-slide
-				.popup__image-wrapper
-					+picture('authors/6', 'jpg', 'popup__image', '')
-				.popup__content
-					.popup__name Михаил Лобоцкий
-					.popup__position Исполняющий обязанности генерального директора Cloud.ru
-					.popup__text
-						p.
-							В 2025 году спрос на наши продукты вырос в среднем на 40-70% — прежде всего за счет инфраструктуры и сервисов для работы
-							с искусственным интеллектом в среде Evolution AI Factory. Компании все чаще переходят от пилотов к полноценному
-							внедрению искусственного интеллекта во всю цепочку создания ценности. Наша задача — сохранять технологическое лидерство
-							и при этом удерживать тарифы доступными, чтобы ИИ становился рабочим инструментом для массового рынка, а не нишевой инновацией.
-							В 2026 мы продолжим расширять продуктовый портфель и укреплять доверие к бренду <a href="https://cloud.ru/" target="_blank">Cloud.ru</a> со стороны заказчиков.
-		.popup__nav.swiper-nav
-			.swiper-btn-prev
-				+icon('arrow-left')(width='45', height='45')
-			.swiper-btn-next
-				+icon('arrow-right')(width='45', height='45')
+			span ключевые тенденции 20 лет
+	.popup__middle
+		.popup__wrapper
+			.popup__scroll
+				.popup__timeline-top
+					.trends-card.trends-card--1
+						.trends-card__text Виртуализация как база. Перенос физических серверов в виртуальную среду
+						.trends-card__line
+						.trends-card__line
+					.trends-card.trends-card--3
+						.trends-card__text DevOps и контейнеризация. Автоматизация разработки и внедрение микросервисной архитектуры
+						.trends-card__line
+						.trends-card__line
+					.trends-card.trends-card--6
+						.trends-card__text Дефицит GPU. Кризис производства чипов и взрывной спрос на облачные мощности для ИИ
+						.trends-card__line
+					.trends-card.trends-card--7
+						.trends-card__text Великий исход западных вендоров из России, отток клиентов к российским провайдерам
+						.trends-card__line
+					.trends-card.trends-card--9
+						.trends-card__text Взросление и консолидация рынка. Крупные игроки скупают нишевых провайдеров, чтобы расширить клиентскую базу и технологический стек
+						.trends-card__line
+				.popup__progress.progress.progress--white
+					.progress__line
+					span 2006
+					span 2007
+					span 2008
+					span 2009
+					span 2010
+					span 2011
+					span 2012
+					span 2013
+					span 2014
+					span 2015
+					span 2016
+					span 2017
+					span 2018
+					span 2019
+					span 2020
+					span 2021
+					span 2022
+					span 2023
+					span 2024
+					span 2025
+					span 2026
+				.popup__timeline-bottom
+					.trends-card.trends-card--2
+						.trends-card__text Гибридные модели. Интеграция приватных и публичных облаков, поиск баланса безопасности и гибкости
+						.trends-card__line.trends-card__line--top
+						.trends-card__line.trends-card__line--top
+					.trends-card.trends-card--4
+						.trends-card__text Рост спроса на сервисы Big Data, аналитики и машинного обучения как услуги
+						.trends-card__line.trends-card__line--top
+						.trends-card__line.trends-card__line--top
+					.trends-card.trends-card--5
+						.trends-card__text Пандемия провоцирует массовый переход на удаленную работу и стимулирует цифровизацию компаний
+						.trends-card__line.trends-card__line--top
+					.trends-card.trends-card--8
+						.trends-card__text Популярность снова приобретают гибридные и on-prem-решения из-за ужесточения требований регуляторов к локализации данных
+						.trends-card__line.trends-card__line--top
