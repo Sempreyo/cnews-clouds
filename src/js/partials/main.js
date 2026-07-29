@@ -649,121 +649,104 @@ document.addEventListener("DOMContentLoaded", () => {
 					fadeIn(square3, 0.3, 1.3);
 					fadeIn(dashes3, 0.3, 1.4);
 
-					const tabsHandler = (index, direction) => {
-						const timeline = document.querySelector(".timeline");
-						const timelineActiveClass = Array.from(timeline.classList).find(className => className.startsWith("active-"));
-						const timelineActiveIndex = timelineActiveClass ? +timelineActiveClass.slice(-1) : null;
-						const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
-						const tabs = tabsWrapper.querySelector(".tabs");
-						const history = document.querySelector(".history");
+					const tabsHandler = (rawIndex, direction) => {
+					    const timeline = document.querySelector(".timeline");
+					    const timelineActiveClass = Array.from(timeline.classList).find(className => className.startsWith("active-"));
+					    let timelineActiveIndex = timelineActiveClass ? +timelineActiveClass.slice(-1) : null;
+					    
+					    // Вычисляем итоговый индекс вкладки
+					    let index = rawIndex;
+					    if (direction === "prev") {
+					        index = (timelineActiveIndex - 2 >= 0) ? (timelineActiveIndex - 2) : 2;
+					    } else if (direction === "next") {
+					        index = (timelineActiveIndex < 3) ? timelineActiveIndex : 0;
+					    }
 
-						if (direction === "prev") {
-							if (timelineActiveIndex - 2 >= 0) {
-								index = timelineActiveIndex - 2;
-							} else {
-								index = 2;
-							}
-						}
+					    // === ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ГРАФИКОВ ===
+					    const charts = document.querySelectorAll(".chart");
+					    const chartClasses = ["chart-iass", "chart-pass", "chart-sass"];
+					    const activeChartClass = chartClasses[index];
+					    
+					    charts.forEach(chart => {
+					        chart.style.display = chart.classList.contains(activeChartClass) ? "block" : "none";
+					    });
+					    // ====================================
 
-						if (direction === "next") {
-							if (timelineActiveIndex < 3) {
-								index = timelineActiveIndex;
-							} else {
-								index = 0;
-							}
-						}
+					    const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
+					    const tabs = tabsWrapper.querySelector(".tabs");
+					    const history = document.querySelector(".history");
 
-						fadeOut(history, 0);
+					    tabsWrapper.style.height = "auto";
+					    tabs.classList.remove("fixed");
+					    menu.classList.remove("fixed");
 
-						tabsWrapper.style.height = "auto";
-						tabs.classList.remove("fixed");
-						menu.classList.remove("fixed");
+					    // Присваиваем класс по активному табу
+					    if (timelineActiveClass) {
+					        timeline.classList.remove(timelineActiveClass);
+					    }
+					    timeline.classList.add(`active-${index + 1}`);
 
-						// Присваиваем класс по активному табу
-						if (timelineActiveClass) {
-							timeline.classList.remove(timelineActiveClass);
-						}
-						timeline.classList.add(`active-${index + 1}`);
+					    // Применяем стандартный контейнер
+					    if (container) {
+					        container.classList.remove("container--small");
+					    }
 
-						// Применяем стандартный контейнер
-						if (container) {
-							container.classList.remove("container--small");
-						}
+					    // Класс для анимаций второго экрана
+					    if (!heroSection.classList.contains("hero--closed")) {
+					        heroSection.classList.add("hero--closed");
+					    }
 
-						// Класс для анимаций второго экрана
-						if (!heroSection.classList.contains("hero--closed")) {
-							heroSection.classList.add("hero--closed");
-						}
+					    tabsButton.forEach(el => {
+					        el.parentElement.classList.remove("active");
+					        !media767 ? el.classList.add("disabled") : "";
+					    });
+					    tabsButton[index].parentElement.classList.add("active");
+					    tabsPopupButton.removeAttribute("data-hidden");
 
-						tabsButton.forEach(el => {
-							el.parentElement.classList.remove("active");
-							!media767 ? el.classList.add("disabled") : "";
-						});
-						tabsButton[index].parentElement.classList.add("active");
-						tabsPopupButton.removeAttribute("data-hidden");
+					    tabsContent.forEach(el => {
+					        el.classList.remove("active");
+					    });
+					    tabsContent[index].classList.add("active");
 
-						tabsContent.forEach(el => {
-							el.classList.remove("active");
-						});
-						tabsContent[index].classList.add("active");
+					    tabsContentWrapper.style.display = "flex";
+					    fadeIn(tabsContentWrapper, 0.3, 0.7);
 
-						tabsContentWrapper.style.display = "flex";
-						fadeIn(tabsContentWrapper, 0.3, 0.7);
+					    title.textContent = tabsButton[index].nextElementSibling.textContent;
+					    title.dataset.text = tabsButton[index].textContent;
+					    menuItemTimeline.querySelector("span").textContent = title.textContent;
+					    menuItemHistory.classList.remove("hidden");
+					    menuItemTimeline.classList.add("hidden");
 
-						title.textContent = tabsButton[index].nextElementSibling.textContent;
-						title.dataset.text = tabsButton[index].textContent;
-						menuItemTimeline.querySelector("span").textContent = title.textContent;
-						menuItemHistory.classList.remove("hidden");
-						menuItemTimeline.classList.add("hidden");
+					    if (!media767) {
+					        // Горизонтальный скролл
+					        animateScroll(
+					            timeline,
+					            document.querySelector(".timeline__wrapper"),
+					            document.querySelector(".timeline__scroll"),
+					            tabsButton
+					        );
 
-						// Высота линии от года до карточки
-						/*const timelineSteps = document.querySelectorAll(".timeline-step");
+					        // Горизонтальный скролл 2
+					        animateHistory(
+					            document.querySelector(".history"),
+					            document.querySelector(".history__wrapper"),
+					            document.querySelector(".history__scroll")
+					        );
+					    } else {
+					        window.scrollTo({
+					            top: tabsContentWrapper.offsetTop,
+					            behavior: "smooth"
+					        });
 
-						if (timelineSteps && timelineSteps.length > 0) {
-							timelineSteps.forEach(step => {
-								const line = step.querySelector(".timeline-step__line");
-								const year = step.querySelector(".timeline-step__year");
-								const card = step.querySelector(".timeline-step__card");
-
-								if (year && card) {
-									const yearRect = year.getBoundingClientRect();
-									const cardRect = card.getBoundingClientRect();
-
-									line.style.height = `${cardRect.top - yearRect.bottom}px`;
-								}
-							});
-						}*/
-
-						if (!media767) {
-							// Горизонтальный скролл
-							animateScroll(
-								timeline,
-								document.querySelector(".timeline__wrapper"),
-								document.querySelector(".timeline__scroll"),
-								tabsButton
-							);
-
-							// Горизонтальный скролл 2
-							animateHistory(
-								document.querySelector(".history"),
-								document.querySelector(".history__wrapper"),
-								document.querySelector(".history__scroll")
-							);
-						} else {
-							window.scrollTo({
-								top: tabsContentWrapper.offsetTop,
-								behavior: "smooth"
-							});
-
-							ScrollTrigger.getAll().forEach(st => {
-								if (
-									st.trigger === document.querySelector(".timeline__wrapper") ||
-									st.trigger === document.querySelector(".history__wrapper")
-								) {
-									st.kill(true);
-								}
-							});
-						}
+					        ScrollTrigger.getAll().forEach(st => {
+					            if (
+					                st.trigger === document.querySelector(".timeline__wrapper") ||
+					                st.trigger === document.querySelector(".history__wrapper")
+					            ) {
+					                st.kill(true);
+					            }
+					        });
+					    }
 					}
 
 					// Клик на табы
