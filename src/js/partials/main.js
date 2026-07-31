@@ -295,12 +295,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			const firstStep = steps[0];
 			const lastStep = steps[steps.length - 1];
 
-			// Измеряем реальные физические границы элементов на экране
-			const firstRect = firstStep.getBoundingClientRect();
-			const lastRect = lastStep.getBoundingClientRect();
+			// БЕЗОПАСНЫЙ ЗАМЕР ДЛЯ FIREFOX (без использования getBoundingClientRect)
+			const firstLeft = firstStep.offsetLeft;
+			const lastRight = lastStep.offsetLeft + lastStep.offsetWidth;
 
 			// Базовая ширина от левого края первой карточки до правого края последней
-			let parentScrollWidth = lastRect.right - firstRect.left;
+			let parentScrollWidth = lastRight - firstLeft;
 
 			// Добавляем запас в конце ленты
 			const safetyPadding = 350;
@@ -328,81 +328,27 @@ document.addEventListener("DOMContentLoaded", () => {
 					anticipatePin: 1,
 					invalidateOnRefresh: true,
 					fastScrollEnd: true,
-					end: () => "+=" + scrollDistance,
+					end: `+=${scrollDistance}`, // Статичная строка для исключения багов при рефреше
 					onEnter: () => {
 						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
 
 						if (menuItemDynamics) {
-						    const svgIcon = menuItemDynamics.querySelector("svg");
-						    
-						    if (svgIcon) {
-						        svgIcon.style.transform = "translateX(-50%) rotate(180deg)";
-						    }
+							const svgIcon = menuItemDynamics.querySelector("svg");
+							
+							if (svgIcon) {
+								svgIcon.style.transform = "translateX(-50%) rotate(180deg)";
+							}
 						}
 					},
-					/*onEnter: () => {
-						tabsWrapper.style.height = `${tabs.offsetHeight}px`;
-						tabs.classList.add("fixed");
-						const startY = -(tabs.offsetHeight + 20);
-
-						gsap.fromTo(
-							tabs,
-							{y: startY},
-							{y: 0, duration: 0.4, ease: "power2.out", overwrite: "auto"}
-						);
-					},
-					onLeave: () => {
-						//tabs.classList.remove("fixed");
-						gsap.to(tabs, { y: -(tabs.offsetHeight + 60), ease: "power2.out" });
-						//tabsWrapper.style.height = "auto";
-					},
-					onEnterBack: () => {
-						tabsWrapper.style.height = `${tabs.offsetHeight}px`;
-						tabs.classList.add("fixed");
-						gsap.to(tabs, {y: 0, ease: "power2.out"});
-					},
-					onLeaveBack: () => {
-						const endY = -(tabs.offsetHeight + 20);
-
-						gsap.to(tabs, {
-							y: endY,
-							duration: 0.3,
-							ease: "power2.in",
-							overwrite: "auto",
-							onComplete: () => {
-								tabs.classList.remove("fixed");
-								gsap.set(tabs, {y: 0});
-								tabsWrapper.style.height = "auto";
-							}
-						});
-					},*/
 					onUpdate: (self) => {
 						const isInRange = self.progress > 0 && self.progress < 1;
 
 						if (isInRange && !isMenuVisible) {
-							//isMenuVisible = true;
-
 							menuItemHistory.classList.add("hidden");
 							menuItemTimeline.classList.remove("hidden");
-
-							/*gsap.set(menu, { bottom: "30px", top: "auto" });
-
-							gsap.to(
-								menu,
-								{y: 0, opacity: 1, ease: "none", duration: 0.3, overwrite: "auto"}
-							);*/
 						} else if (!isInRange && isMenuVisible) {
 							menuItemHistory.classList.remove("hidden");
 							menuItemTimeline.classList.add("hidden");
-
-							/*isMenuVisible = false;
-
-							gsap.to(
-								menu,
-								{
-									y: 100, opacity: 0, ease: "none", duration: 0.1, overwrite: "auto"
-								}
-							);*/
 						}
 					}
 				}
