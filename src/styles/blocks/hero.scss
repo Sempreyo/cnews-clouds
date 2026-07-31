@@ -304,7 +304,7 @@
 		width: 100%;
 		border-radius: 0 15px 0 0;
 		background-color: $color-background-2;
-		padding: 31px 20px 120px 0;
+		padding: 26px 20px 120px 0;
 		box-sizing: border-box;
 
 		&::before {
@@ -323,8 +323,8 @@
 
 		&.fixed {
 			position: fixed;
-			top: 143px;
-			left: calc(1 * (100vw - 1552px + 25px) / 2);
+			top: 146px;
+			left: calc(1 * (100vw - 1552px + 36px) / 2);
 
 			@include max(1543) {
 				top: 240px;

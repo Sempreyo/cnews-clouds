@@ -113,11 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Анимация прокрутки таймлайн блоков
 	let horizontalTween;
+
 	const animateScroll = (timeline, timelineContainer, timelineScroll, tabsButton) => {
-		//window.scrollTo(0, 0);
+		// 1. Блокируем скролл и мгновенно возвращаем наверх
+		document.body.style.overflow = "hidden";
+		window.scrollTo(0, 0);
 
-		//document.body.setAttribute("no-scroll", true);
-
+		// Очистка старых триггеров
 		if (horizontalTween) {
 			if (horizontalTween.scrollTrigger) {
 				horizontalTween.scrollTrigger.disable(false);
@@ -139,162 +141,119 @@ document.addEventListener("DOMContentLoaded", () => {
 			pinSpacer.parentNode.removeChild(pinSpacer);
 		}
 
-		// Сбрасываем стили, которые могли остаться от прошлых расчетов
 		gsap.set([timelineContainer, timelineScroll], { clearProps: "all" });
-		window.scrollTo(0, 0);
 
 		setTimeout(() => {
-			// Временно обнуляем позицию ленты для точного замера координат
-			gsap.set(timelineScroll, { x: 0, width: "max-content" });
+			// Функция расчета расстояния
+			const calculateDistance = () => {
+				gsap.set(timelineScroll, { x: 0, width: "max-content" });
 
-			const steps = timelineContainer.querySelectorAll('.timeline__page.active .timeline-step');
+				const steps = timelineContainer.querySelectorAll('.timeline__page.active .timeline-step');
+				if (steps.length === 0) return 0;
 
-			if (steps.length === 0) return;
+				const firstStep = steps[0]; // Исправлено: берем первый элемент из коллекции
+				const firstRect = firstStep.getBoundingClientRect();
+				const lastStep = steps[steps.length - 1];
+				const lastRect = lastStep.getBoundingClientRect();
 
-			// Находим первый и последний элементы
-			const firstStep = steps[0];
-			const lastStep = steps[steps.length - 1];
+				let timelineScrollWidth = lastRect.right - firstRect.left;
 
-			// Измеряем реальные физические границы элементов на экране
-			const firstRect = firstStep.getBoundingClientRect();
-			const lastRect = lastStep.getBoundingClientRect();
+				const lastStyles = window.getComputedStyle(lastStep);
+				const lastMarginRight = parseInt(lastStyles.marginRight, 10) || 0;
 
-			// Базовая ширина от левого края первой карточки до правого края последней
-			let timelineScrollWidth = lastRect.right - firstRect.left;
+				if (lastMarginRight < 0) {
+					timelineScrollWidth += Math.abs(lastMarginRight);
+				}
 
-			// Корректируем отрицательные маргины для последних блоков
-			const lastStyles = window.getComputedStyle(lastStep);
-			const lastMarginRight = parseInt(lastStyles.marginRight, 10) || 0;
-			const lastMarginLeft = parseInt(lastStyles.marginLeft, 10) || 0;
+				const safetyPadding = 550;
+				timelineScrollWidth += safetyPadding;
 
-			// Если у последней карточки есть отрицательный маргин или она сильно сдвинута, компенсируем это в ширине:
-			if (lastMarginRight < 0) {
-				timelineScrollWidth += Math.abs(lastMarginRight);
+				const timelineWidth = timeline.offsetWidth - 220;
+				
+				return {
+					scrollWidth: timelineScrollWidth,
+					distance: timelineScrollWidth - timelineWidth
+				};
+			};
+
+			let sizes = calculateDistance();
+			if (sizes === 0) {
+				document.body.style.overflow = ""; // Если шагов нет, снимаем блок
+				return; 
 			}
 
-			// Добавляем запас в конце ленты
-			const safetyPadding = 550;
-			timelineScrollWidth += safetyPadding;
-
-			//const timelineScrollWidth = timelineScroll.scrollWidth;
-			const timelineWidth = timeline.offsetWidth - 220;
-			const scrollDistance = timelineScrollWidth - timelineWidth;
-			let isMenuVisible = false;
 			const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
 			const tabs = tabsWrapper.querySelector(".tabs");
 
 			gsap.set(timelineScroll, {
-				width: timelineScrollWidth,
+				width: sizes.scrollWidth,
 				x: 0
 			});
 
 			horizontalTween = gsap.to(timelineScroll, {
 				id: "firstHorizontal",
-				x: -scrollDistance,
+				x: () => -sizes.distance,
 				ease: "power1.inOut",
-				onInit: () => {
-					if (tabsButton) {
-						tabsButton.forEach(el => el.classList.remove("disabled"));
-						document.body.removeAttribute("no-scroll");
-
-						const history = document.querySelector(".history");
-						fadeIn(history, 0.3);
-					}
-				},
 				scrollTrigger: {
 					trigger: timelineContainer,
-					start: `${-(tabs.offsetHeight + 60)} top`,
+					start: () => `${-(tabs.offsetHeight + 60)} top`,
 					pin: true,
 					scrub: 3,
 					anticipatePin: 1,
-					invalidateOnRefresh: true,
+					invalidateOnRefresh: true, 
 					fastScrollEnd: true,
-					end: () => "+=" + scrollDistance,
+					end: () => "+=" + sizes.distance,
+					onRefresh: () => {
+						sizes = calculateDistance();
+						gsap.set(timelineScroll, { width: sizes.scrollWidth });
+					},
 					onEnter: () => {
 						menu.classList.add("fixed");
 						tabs.classList.add("fixed");
 
 						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
-
 						if (menuItemDynamics) {
-						    const svgIcon = menuItemDynamics.querySelector("svg");
-						    
-						    if (svgIcon) {
-						        svgIcon.style.transform = "rotate(0deg)";
-						    }
+							const svgIcon = menuItemDynamics.querySelector("svg");
+							if (svgIcon) svgIcon.style.transform = "rotate(0deg)";
 						}
-					},
-					onLeave: () => {
-						/*gsap.to(tabs, { y: -(tabs.offsetHeight + 60), ease: "power2.out" });*/
 					},
 					onEnterBack: () => {
 						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
-
 						if (menuItemDynamics) {
-						    const svgIcon = menuItemDynamics.querySelector("svg");
-						    
-						    if (svgIcon) {
-						        svgIcon.style.transform = "rotate(0deg)";
-						    }
+							const svgIcon = menuItemDynamics.querySelector("svg");
+							if (svgIcon) svgIcon.style.transform = "rotate(0deg)";
 						}
-			
-						/*tabsWrapper.style.height = `${tabs.offsetHeight}px`;
-						tabs.classList.add("fixed");
-						gsap.to(tabs, {y: 0, ease: "power2.out"});*/
 					},
 					onLeaveBack: () => {
 						menu.classList.remove("fixed");
 						tabs.classList.remove("fixed");
-						
-						//tabsWrapper.style.height = "auto";
-
-						/*const endY = -(tabs.offsetHeight + 20);
-
-						gsap.to(tabs, {
-							y: endY,
-							duration: 0.3,
-							ease: "power2.in",
-							overwrite: "auto",
-							onComplete: () => {
-								tabs.classList.remove("fixed");
-								gsap.set(tabs, {y: 0});
-								tabsWrapper.style.height = "auto";
-							}
-						});*/
 					},
 					onUpdate: (self) => {
 						const isInRange = self.progress > 0 && self.progress < 1;
-
-						if (isInRange && !isMenuVisible) {
-							//isMenuVisible = true;
-
+						if (isInRange) {
 							menuItemHistory.classList.remove("hidden");
 							menuItemTimeline.classList.add("hidden");
-
-							/*gsap.set(menu, { bottom: "30px", top: "auto" });
-
-							gsap.to(
-								menu,
-								{y: 0, opacity: 1, ease: "none", duration: 0.3, overwrite: "auto"}
-							);*/
-						} else if (!isInRange && isMenuVisible) {
-							menuItemHistory.classList.remove("hidden");
-							menuItemTimeline.classList.add("hidden");
-
-							/*isMenuVisible = false;
-
-							gsap.to(
-								menu,
-								{y: 100, opacity: 0, ease: "none", duration: 0.1, overwrite: "auto"}
-							);*/
 						}
 					}
 				}
 			});
 
+			// 2. ГАРАНТИРОВАННАЯ РАЗБЛОКИРУЕМ СКРОЛЛ
+			// Триггер создан, принудительно возвращаем скролл документу
+			document.body.style.overflow = ""; 
+
+			if (tabsButton) {
+				tabsButton.forEach(el => el.classList.remove("disabled"));
+				document.body.removeAttribute("no-scroll");
+
+				const history = document.querySelector(".history");
+				if (typeof fadeIn === "function") fadeIn(history, 0.3);
+			}
+
 			ScrollTrigger.refresh(true);
 		}, 1100);
-	}
+	};
+
 
 	// Анимация прокрутки блоков истории
 	let horizontalTween2;
