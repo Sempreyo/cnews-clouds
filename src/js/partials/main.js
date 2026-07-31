@@ -212,21 +212,32 @@ document.addEventListener("DOMContentLoaded", () => {
 					end: () => "+=" + scrollDistance,
 					onEnter: () => {
 						menu.classList.add("fixed");
-
-						tabsWrapper.style.height = `${tabs.offsetHeight}px`;
 						tabs.classList.add("fixed");
-						/*const startY = -(tabs.offsetHeight + 20);
 
-						gsap.fromTo(
-							tabs,
-							{y: startY},
-							{y: 0, duration: 0.4, ease: "power2.out", overwrite: "auto"}
-						);*/
+						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
+
+						if (menuItemDynamics) {
+						    const svgIcon = menuItemDynamics.querySelector("svg");
+						    
+						    if (svgIcon) {
+						        svgIcon.style.transform = "rotate(0deg)";
+						    }
+						}
 					},
 					onLeave: () => {
 						/*gsap.to(tabs, { y: -(tabs.offsetHeight + 60), ease: "power2.out" });*/
 					},
 					onEnterBack: () => {
+						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
+
+						if (menuItemDynamics) {
+						    const svgIcon = menuItemDynamics.querySelector("svg");
+						    
+						    if (svgIcon) {
+						        svgIcon.style.transform = "rotate(0deg)";
+						    }
+						}
+			
 						/*tabsWrapper.style.height = `${tabs.offsetHeight}px`;
 						tabs.classList.add("fixed");
 						gsap.to(tabs, {y: 0, ease: "power2.out"});*/
@@ -234,7 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					onLeaveBack: () => {
 						menu.classList.remove("fixed");
 						tabs.classList.remove("fixed");
-						tabsWrapper.style.height = "auto";
+						
+						//tabsWrapper.style.height = "auto";
 
 						/*const endY = -(tabs.offsetHeight + 20);
 
@@ -358,6 +370,17 @@ document.addEventListener("DOMContentLoaded", () => {
 					invalidateOnRefresh: true,
 					fastScrollEnd: true,
 					end: () => "+=" + scrollDistance,
+					onEnter: () => {
+						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
+
+						if (menuItemDynamics) {
+						    const svgIcon = menuItemDynamics.querySelector("svg");
+						    
+						    if (svgIcon) {
+						        svgIcon.style.transform = "translateX(-50%) rotate(180deg)";
+						    }
+						}
+					},
 					/*onEnter: () => {
 						tabsWrapper.style.height = `${tabs.offsetHeight}px`;
 						tabs.classList.add("fixed");
@@ -486,9 +509,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Навигация по прокручиваемым блокам
 	const menu = document.querySelector(".hero__menu");
-	const menuItemStart = menu.querySelectorAll(".hero__menu-item")[4];
-	const menuItemHistory = menu.querySelectorAll(".hero__menu-item")[0];
-	const menuItemTimeline = menu.querySelectorAll(".hero__menu-item")[1];
+    const menuItemHistory = menu.querySelector(".hero__menu-item--history");
+    const menuItemTimeline = menu.querySelector(".hero__menu-item--timeline");
+    const menuItemDynamics = menu.querySelector(".hero__menu-item--dynamics");
+    const menuItemStart = menu.querySelector(".hero__menu-item--start");
+    const heroSection = document.querySelector(".hero");
 
 	// Начальная позиция навигации
 	//gsap.set(menu, { xPercent: -50, y: 90, opacity: 0 });
@@ -500,10 +525,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
 		const tabs = tabsWrapper.querySelector(".tabs");
 
-		//tabsWrapper.style.height = "auto";
 		tabs.classList.remove("fixed");
 
-		//gsap.set(menu, { xPercent: -50, y: 90, opacity: 0 });
 
 		gsap.to(window, {
 			scrollTo: 0,
@@ -537,66 +560,164 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	menuItemTimeline.addEventListener("click", () => {
-		if (horizontalTween && horizontalTween.scrollTrigger) {
-			const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
-			const targetScrollPoint = horizontalTween.scrollTrigger.start + 30;
+	    if (horizontalTween && horizontalTween.scrollTrigger) {
+	        const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
+	        const targetScrollPoint = horizontalTween.scrollTrigger.start + 30;
 
-			horizontalTween.scrollTrigger.disable(false);
+	        // Безопасно получаем оба триггера
+	        const st1 = horizontalTween.scrollTrigger;
+	        const st2 = horizontalTween2 && horizontalTween2.scrollTrigger ? horizontalTween2.scrollTrigger : null;
 
-			fadeOut(tabsWrapper, 0);
-			fadeOut(horizontalTween._targets[0], 0);
-			fadeOut(horizontalTween2._targets[0], 0);
+	        // Отключаем оба, чтобы не мешали скроллу
+	        if (st1) st1.disable(false);
+	        if (st2) st2.disable(false);
 
-			menuItemHistory.classList.remove("hidden");
-			menuItemTimeline.classList.add("hidden");
+	        fadeOut(tabsWrapper, 0);
+	        fadeOut(horizontalTween._targets[0], 0);
+	        if (horizontalTween2 && horizontalTween2._targets) fadeOut(horizontalTween2._targets[0], 0);
 
-			gsap.to(window, {
-				scrollTo: targetScrollPoint,
-				duration: 0.3,
-				ease: "power2.out",
-				overwrite: "auto",
-				onComplete: () => {
-					horizontalTween.scrollTrigger.enable();
-					ScrollTrigger.refresh();
-					fadeIn(tabsWrapper, 0.2);
-					fadeIn(horizontalTween._targets[0], 0.2);
-					fadeIn(horizontalTween2._targets[0], 0.2);
-				}
-			});
-		}
+	        menuItemHistory.classList.remove("hidden");
+	        menuItemTimeline.classList.add("hidden");
+
+	        gsap.to(window, {
+	            scrollTo: targetScrollPoint,
+	            duration: 0.3,
+	            ease: "power2.out",
+	            overwrite: "auto",
+	            onComplete: () => {
+	                // Включаем оба триггера обратно
+	                if (st1) st1.enable();
+	                if (st2) st2.enable();
+	                
+	                ScrollTrigger.refresh();
+	                
+	                fadeIn(tabsWrapper, 0.2);
+	                fadeIn(horizontalTween._targets[0], 0.2);
+	                if (horizontalTween2 && horizontalTween2._targets) fadeIn(horizontalTween2._targets[0], 0.2);
+	            }
+	        });
+	    }
 	});
 
 	menuItemHistory.addEventListener("click", () => {
-		if (horizontalTween2 && horizontalTween2.scrollTrigger) {
-			const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
-			const targetScrollPoint = horizontalTween2.scrollTrigger.start + 90;
+	    if (horizontalTween2 && horizontalTween2.scrollTrigger) {
+	        const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
+	        const targetScrollPoint = horizontalTween2.scrollTrigger.start + 90;
 
-			horizontalTween.scrollTrigger.disable(false);
+	        // Безопасно получаем оба триггера
+	        const st1 = horizontalTween && horizontalTween.scrollTrigger ? horizontalTween.scrollTrigger : null;
+	        const st2 = horizontalTween2.scrollTrigger;
 
-			fadeOut(tabsWrapper, 0);
-			fadeOut(horizontalTween._targets[0], 0);
-			fadeOut(horizontalTween2._targets[0], 0);
+	        // Исправлено: теперь отключаем оба триггера (раньше отключался только st1)
+	        if (st1) st1.disable(false);
+	        if (st2) st2.disable(false);
 
-			menuItemHistory.classList.add("hidden");
-			menuItemTimeline.classList.remove("hidden");
+	        fadeOut(tabsWrapper, 0);
+	        if (horizontalTween && horizontalTween._targets) fadeOut(horizontalTween._targets[0], 0);
+	        fadeOut(horizontalTween2._targets[0], 0);
 
-			gsap.to(window, {
-				scrollTo: targetScrollPoint,
-				duration: 0.3,
-				ease: "power2.out",
-				overwrite: "auto",
-				onComplete: () => {
-					horizontalTween.scrollTrigger.enable();
-					ScrollTrigger.refresh();
-					fadeIn(tabsWrapper, 0.2);
-					fadeIn(horizontalTween._targets[0], 0.2);
-					fadeIn(horizontalTween2._targets[0], 0.2);
-				}
-			});
-		}
+	        menuItemHistory.classList.add("hidden");
+	        menuItemTimeline.classList.remove("hidden");
+
+	        gsap.to(window, {
+	            scrollTo: targetScrollPoint,
+	            duration: 0.3,
+	            ease: "power2.out",
+	            overwrite: "auto",
+	            onComplete: () => {
+	                // Включаем оба триггера обратно
+	                if (st1) st1.enable();
+	                if (st2) st2.enable();
+	                
+	                ScrollTrigger.refresh();
+	                
+	                if (horizontalTween && horizontalTween._targets) fadeIn(horizontalTween._targets[0], 0.2);
+	                fadeIn(horizontalTween2._targets[0], 0.2);
+	                fadeIn(tabsWrapper, 0.2);
+	            }
+	        });
+	    }
 	});
 
-	const heroSection = document.querySelector(".hero");
+
+	menuItemDynamics.addEventListener("click", () => {
+	    // 1. Находим целевой блок (только видимый график)
+	    const chartBlock = document.querySelector(".chart:not([style*='display: none'])");
+	    if (!chartBlock) return;
+
+	    // РЕШЕНИЕ: Оборачиваем весь расчет и скролл в delayedCall(0). 
+	    // Это заставит код подождать ровно 1 кадр, пока браузер применит стили вкладок, 
+	    // и только потом снимет точные координаты.
+	    gsap.delayedCall(0, () => {
+	        
+	        // Теперь refresh() гарантированно увидит реальные высоты и пины
+	        ScrollTrigger.refresh();
+
+	        // 2. Рассчитываем точную позицию скролла с учетом пинов выше
+	        let scrollTargetPosition = ScrollTrigger.scrollForTopLevelOnly 
+	            ? ScrollTrigger.scroll(chartBlock) 
+	            : chartBlock.getBoundingClientRect().top + window.scrollY;
+
+	        // Проверяем наличие триггера у самого графика для максимальной точности
+	        const allTriggers = ScrollTrigger.getAll();
+	        for (let i = 0; i < allTriggers.length; i++) {
+	            if (allTriggers[i].trigger === chartBlock) {
+	                scrollTargetPosition = allTriggers[i].start;
+	                break;
+	            }
+	        }
+
+	        // Финальная точка скролла с учетом отступа (offsetY: 50)
+	        const targetScrollPoint = scrollTargetPosition - 50;
+
+	        // 3. Безопасно получаем триггеры обеих горизонтальных лент
+	        const st1 = horizontalTween && horizontalTween.scrollTrigger ? horizontalTween.scrollTrigger : null;
+	        const st2 = horizontalTween2 && horizontalTween2.scrollTrigger ? horizontalTween2.scrollTrigger : null;
+
+	        // Отключаем оба триггера, чтобы они не мешали скроллу
+	        if (st1) st1.disable(false);
+	        if (st2) st2.disable(false);
+
+	        // 4. Скрываем элементы через fadeOut
+	        const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
+	        fadeOut(tabsWrapper, 0);
+	        if (horizontalTween && horizontalTween._targets) {
+	            fadeOut(horizontalTween._targets, 0);
+	        }
+	        if (horizontalTween2 && horizontalTween2._targets) {
+	            fadeOut(horizontalTween2._targets, 0);
+	        }
+
+	        // 5. Запускаем скролл
+	        gsap.to(window, {
+	            scrollTo: targetScrollPoint,
+	            duration: 0.3,
+	            ease: "power2.out",
+	            overwrite: "auto",
+	            onComplete: () => {
+	                // Включаем оба триггера обратно после завершения скролла
+	                if (st1) st1.enable();
+	                if (st2) st2.enable();
+	                
+	                // Актуализируем координаты всех пинов на странице
+	                ScrollTrigger.refresh();
+	                
+	                // Плавно возвращаем видимость элементам
+	                fadeIn(tabsWrapper, 0.2);
+	                if (horizontalTween && horizontalTween._targets) {
+	                    fadeIn(horizontalTween._targets, 0.2);
+	                }
+	                if (horizontalTween2 && horizontalTween2._targets) {
+	                    fadeIn(horizontalTween2._targets, 0.2);
+	                }
+	            }
+	        });
+
+	    });
+	});
+
+
+
 
 	if (heroSection) {
 		const heroObserver = new IntersectionObserver((entries, observer) => {
@@ -675,10 +796,20 @@ document.addEventListener("DOMContentLoaded", () => {
 					    const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
 					    const tabs = tabsWrapper.querySelector(".tabs");
 					    const history = document.querySelector(".history");
+					    const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
 
-					    tabsWrapper.style.height = "auto";
 					    tabs.classList.remove("fixed");
 					    menu.classList.remove("fixed");
+
+
+
+						if (menuItemDynamics) {
+						    const svgIcon = menuItemDynamics.querySelector("svg");
+						    
+						    if (svgIcon) {
+						        svgIcon.style.transform = "rotate(0deg)";
+						    }
+						}
 
 					    // Присваиваем класс по активному табу
 					    if (timelineActiveClass) {
@@ -741,7 +872,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					        ScrollTrigger.getAll().forEach(st => {
 					            if (
 					                st.trigger === document.querySelector(".timeline__wrapper") ||
-					                st.trigger === document.querySelector(".history__wrapper")
+					                st.trigger === document.querySelector(".history__wrapper") ||
+					                st.trigger === document.querySelector(".chat")
 					            ) {
 					                st.kill(true);
 					            }

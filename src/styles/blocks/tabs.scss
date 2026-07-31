@@ -4,36 +4,21 @@
 	position: relative;
 	z-index: 6;
 	transition: transform 0.3s ease, top 0.3s ease;
-
+    margin: auto;
+    
 	&.fixed {
 		position: fixed;
 		top: 0;
-		//left: calc((100vw - 1552px + 40px) / 2);
-		//right: calc((100vw - 1552px + 40px) / 2);
 		left: 0;
 		right: 0;
-		padding: 10px calc((100vw - 1552px + 40px) / 2) 30px calc((100vw - 1552px + 40px) / 2);
-		background: linear-gradient(180deg, rgba(53, 133, 217, 1) 0%, rgba(53, 133, 217, 0) 95%);
+	    padding-left: calc(50% - 1512px / 2);
+	    padding-right: calc(50% - 1512px / 2);
+		background: linear-gradient(180deg, rgba(0, 118, 228, 1) 0%, rgba(0, 118, 228, 0) 95%);
 		transition: none !important;
 
-		@include max(1570) {
-			left: 20px;
-			right: 20px;
-		}
-
-		#{$parent} {
-			&__title::before {
-				left: calc((100vw - 1552px - 260px) / 2);
-
-				@include max(1850) {
-					left: calc((100vw - 1552px + 40px) / 2);
-				}
-
-				@include max(1570) {
-					left: 0;
-				}
-			}
-		}
+		@include max(1543) {
+	    	padding: 0 20px;
+	    }
 	}
 
 	&__timeline {
@@ -65,7 +50,6 @@
 	}
 
 	&__bottom {
-		padding-bottom: 200px;
 		opacity: 0;
 		transform: translateY(30px);
 	}

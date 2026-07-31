@@ -1,0 +1,201 @@
+// Переменные для удобного управления цветами
+$color-chart-bg: #d6e7f8;
+$color-race-title: rgb(7, 151, 146);
+$color-slider-fill: rgb(255, 115, 0);
+$color-button-circle: #3585d9;
+$color-timeline-stroke: #c0defd;
+$color-tooltip-bg: rgba(255, 255, 255, 0.9);
+$color-text-black: black;
+
+// Цвета для легенды
+$legend-color-1: #edad08;
+$legend-color-2: #1d6996;
+$legend-color-3: #73af48;
+$legend-color-4: #94346e;
+$legend-color-5: #808000;
+
+.chart {
+  padding: 90px 0 0 220px;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.chart-wrapper {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+}
+
+.chart-inner {
+  width: 100%;
+  background: $color-chart-bg;
+  max-width: 1070px;
+  border-radius: 15px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 25px 40px;
+
+  @media (max-width: 992px) {
+    padding: 20px;
+  }
+
+  .logo-group circle {
+    display: none;
+  }
+
+  .tick {
+    text {
+      font-size: 12px !important;
+      opacity: .7 !important;
+      color: $color-text-black !important;
+      font-family: Sansation, sans-serif !important;
+    }
+
+    line {
+      display: none;
+    }
+  }
+
+  .timeline line {
+    stroke: $color-timeline-stroke !important;
+  }
+
+  .chart-race__button circle {
+    fill: $color-button-circle !important;
+  }
+
+  .slider {
+    fill: $color-slider-fill !important;
+  }
+
+  .ticker {
+    opacity: .7;
+  }
+}
+
+.chart__image {
+  max-width: 1070px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.chart__title {
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 42px 0 15px;
+}
+
+.chart-race {
+  position: relative;
+
+  &__title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: bold;
+    color: $color-race-title;
+    margin: 0;
+    padding-top: 0;
+  }
+
+  &__creatorstext {
+    color: $color-text-black;
+    font-size: 16px;
+
+    @media (max-width: 992px) {
+      font-size: 12px;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background-color: $color-tooltip-bg;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 24px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__creators {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__creator {
+    max-width: 100px;
+  }
+
+  &__legends {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+    margin-top: 20px;
+  }
+
+  &__text {
+    margin-top: 20px !important;
+  }
+}
+
+.section-chart-race .txt {
+  @media (max-width: 1200px) {
+    padding: 30px 0 0 !important;
+  }
+}
+
+.race-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__square {
+    min-width: 15px;
+    max-width: 15px;
+    height: 15px;
+    border-radius: 3px;
+
+    &--1 {
+      background-color: $legend-color-1;
+    }
+
+    &--2 {
+      background-color: $legend-color-2;
+    }
+
+    &--3 {
+      background-color: $legend-color-3;
+    }
+
+    &--4 {
+      background-color: $legend-color-4;
+    }
+
+    &--5 {
+      background-color: $legend-color-5;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $color-text-black;
+  }
+}
