@@ -27,26 +27,31 @@
 
 			@include max(t) {
 				right: -350px;
+				opacity: .6!important;
 			}
 		}
 
 		&--2 {
-			top: calc(100% - 520px);
-			left: -17.3%;
+			top: calc(50% + 150px);
+    		left: calc(50% - 580px);
 			max-width: unset;
-			transform: translateX(-30px);
 			transition: 0.3s ease-in-out;
+			@include max(t) {
+				left:inherit;
+				right: -350px;
+				opacity: .6!important;
+			}
 		}
 
 		&--3 {
-			top: calc(100% - 480px);
-			right: -9.6%;
+			top: calc(50% + 130px);
+    		left: calc(50% - 1050px);
 			max-width: unset;
-			transform: translateX(-30px);
 			transition: 0.3s ease-in-out;
-
 			@include max(t) {
 				bottom: -25%;
+				top:inherit;
+				opacity: .6!important;
 			}
 		}
 	}
@@ -103,8 +108,6 @@
 
 	&__logo {
 		color: $color-primary;
-		width: 112px;
-		height: 21px;
 		transition: 0.3s ease;
 
 		&:hover {
@@ -134,17 +137,43 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 26px;
+		gap: 40px;
 	}
 
-	&__logos-wrapper {
-		display: flex;
-		align-items: flex-end;
-		gap: 15px;
+	&__logos{
+		&-wrapper {
+			display: flex;
+			align-items: flex-end;
+			gap: 45px;
 
-		@include max(1020) {
-			flex-direction: column;
-			align-items: flex-start;
+			@include max(1020) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+		&-block{
+			display: flex;
+			flex:0 0 0;
+			flex-wrap: wrap;
+			gap:16px;
+			@include max(tl) {
+				flex-direction: column-reverse;
+				gap:5px;
+			}
+		}
+		&-title{
+			font-size: 10px;
+			color:white;
+			white-space: nowrap;
+			width: 100%;
+		}
+		&-rtk{
+			width: 111px;
+			max-width: 111px;
+		}
+		&-cnews{
+			width: 93px;
+			margin: 0 0 7px;
 		}
 	}
 
@@ -295,7 +324,7 @@
 		position: absolute;
 		top: 50px;
 		left: 0;
-		z-index: 2;
+		z-index: 4;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
@@ -304,7 +333,7 @@
 		width: 100%;
 		border-radius: 0 15px 0 0;
 		background-color: $color-background-2;
-		padding: 26px 20px 120px 0;
+		padding: 26px 20px 200px 0;
 		box-sizing: border-box;
 
 		&::before {
@@ -470,7 +499,9 @@
 	&--closed {
 		padding: 37px 0 0;
 		background: $color-background-2;
-
+		.tabs__button--text{
+			display: none;
+		}
 		.dictionary {
 			opacity: 1;
 			pointer-events: auto;
@@ -487,7 +518,8 @@
 			}
 
 			&--2 {
-				top: -470px;
+				top: -500px;
+				left: calc(50% - 340px);
 			}
 
 			&--3 {

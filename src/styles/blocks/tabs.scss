@@ -119,11 +119,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 20px;
+		gap: 4px;
 		width: 100%;
 		background-color: $color-primary;
 		border: 2px solid $color-primary;
-		padding: 22px;
+		padding: 13px;
+		flex-wrap: wrap;
 		border-radius: 55px;
 		font-size: 29px;
 		line-height: 1;
@@ -135,6 +136,12 @@
 		@include max(t) {
 			padding: 10px;
 			font-size: 20px;
+		}
+
+		&--text{
+			font-size: 15px;
+			text-transform: initial;
+			width: 100%;
 		}
 
 		&.disabled {
@@ -164,8 +171,7 @@
 
 		&::before {
 			position: absolute;
-			left: -150px;
-			//bottom: 0;
+			left: calc(50% - 740px);
 			content: attr(data-text);
 			font-weight: 700;
 			font-size: 184px;
@@ -177,10 +183,9 @@
 			color: transparent;
 			filter: blur(2px);
 
-			@include max(1850) {
-				left: 0;
+			@include max(1520) {
 				top: 0;
-				bottom: unset;
+				left: 0;
 			}
 
 			@include max(tl) {
@@ -191,6 +196,7 @@
 
 	&__text {
 		font-size: 12px;
+		visibility: hidden;
 		text-align: center;
 		animation: flickerLabels 9s linear infinite;
 

@@ -747,8 +747,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					    tabsContentWrapper.style.display = "flex";
 					    fadeIn(tabsContentWrapper, 0.3, 0.7);
 
-					    title.textContent = tabsButton[index].nextElementSibling.textContent;
-					    title.dataset.text = tabsButton[index].textContent;
+					    title.textContent = tabsButton[index].querySelector('.tabs__button--text').textContent;
+					    title.dataset.text = tabsButton[index].querySelector('.tabs__button--title').textContent;
 					    menuItemTimeline.querySelector("span").textContent = title.textContent;
 					    menuItemHistory.classList.remove("hidden");
 					    menuItemTimeline.classList.add("hidden");
@@ -791,8 +791,13 @@ document.addEventListener("DOMContentLoaded", () => {
 						button.addEventListener("click", () => tabsHandler(index));
 					});
 
-					tabsPrev.addEventListener("click", () => tabsHandler(false, "prev"));
-					tabsNext.addEventListener("click", () => tabsHandler(false, "next"));
+					if (tabsPrev) {
+					    tabsPrev.addEventListener("click", () => tabsHandler(false, "prev"));
+					}
+					if (tabsNext) {
+					    tabsNext.addEventListener("click", () => tabsHandler(false, "next"));
+					}
+					
 
 					// Словарь
 					dictionaryItems.forEach(el => {
