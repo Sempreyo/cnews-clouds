@@ -115,10 +115,21 @@
 			width: 100% !important;
 			height: auto !important;
 			gap: 0 !important;
-			padding: 30px 20px;
+			padding: 30px 20px!important;
 			border-radius: 15px !important;
 			margin: 0 !important;
 			background-color: rgba($white, 0.8) !important;
+		}
+
+		&:before{
+			@include max(ti) {
+				display: none;
+			}
+		}
+		&:after{
+			@include max(ti) {
+				display: none;
+			}
 		}
 	}
 
@@ -193,7 +204,7 @@
 		#{$parent} {
 			&__image-wrapper {
 				height: 100%;
-				padding: 0;
+				padding: 0!important;
 
 				@include max(ti) {
 					height: 250px;
@@ -207,7 +218,7 @@
 			&__card:only-child,
 			&__card + #{$parent}__card {
 				@include max(ti) {
-					padding: 0;
+					padding: 0!important;
 				}
 			}
 		}
@@ -237,10 +248,11 @@
 	}
 
 	&--1 {
+		margin-left: 30px;
 		#{$parent} {
 			&__card {
-				width: 530px;
-				gap:100px;
+				width: 400px;
+				gap:75px;
 			}
 		}
 	}
@@ -253,7 +265,7 @@
 			}
 
 			&__image {
-				height: 133px;
+				height: 178px;
 			}
 		}
 	}
@@ -262,7 +274,7 @@
 		#{$parent} {
 			&__card {
 				width: 588px;
-				gap: 46px;
+				gap: 65px;
 			}
 		}
 	}
@@ -319,17 +331,24 @@
 		margin-left: -548px;
 
 		&::before {
-			right: 0;
-			bottom: 190px;
-    		height: 100px;
-			border-radius: 15px 15px 0 0;
+			display: none;
 		}
 
 		#{$parent} {
 			&__card {
 				width: 516px;
-				height: 190px;
 				border-radius: 15px 0 15px 15px;
+				&::before {
+					position: absolute;
+				    content: "";
+				    width: 90px;
+				    background-color: rgba(255, 255, 255, .8);
+					right: 0;
+					top: -115px;
+					z-index: 1;
+					height: 115px;
+					border-radius: 15px 15px 0 0;
+				}
 			}
 		}
 	}
@@ -370,13 +389,8 @@
 		justify-content: flex-end;
 		height: 644px;
 		margin-left: -450px;
-
-		&::before {
-			left: 0;
-			top: 295px;
-			z-index: 1;
-			height: 107px;
-			border-radius: 20px 20px 0 0;
+		&::before{
+			display: none;
 		}
 
 		#{$parent} {
@@ -386,9 +400,20 @@
 
 			&__card {
 				width: 705px;
-				height: 242px;
 				gap: 20px;
 				border-radius: 0 18px 18px 18px;
+				&::before {
+					position: absolute;
+				    content: "";
+				    width: 90px;
+				    border-radius: 15px;
+				    background-color: rgba(255, 255, 255, .8);
+					left: 0;
+					top: -106px;
+					z-index: 1;
+					height: 106px;
+					border-radius: 20px 20px 0 0;
+				}
 			}
 		}
 	}
@@ -556,7 +581,7 @@
 				&:nth-child(2) {
 					width: 675px;
 					border-radius: 0 0 15px 15px;
-					padding-top: 60px;
+					padding-top: 76px;
 					margin-left: auto;
 
 					p {
@@ -581,12 +606,10 @@
 	}
 
 	&--16 {
-		margin-top: -28px;
-
 		#{$parent} {
 			&__card {
 				width: 422px;
-				gap: 60px;
+				gap: 46px;
 			}
 		}
 	}
@@ -635,7 +658,7 @@
 		#{$parent} {
 			&__card {
 				width: 569px;
-				gap: 60px;
+				gap: 75px;
 				padding-right: 60px;
 			}
 
@@ -659,7 +682,7 @@
 		#{$parent} {
 			&__card {
 				width: 180px;
-				min-height: 459px;
+				min-height: 478px;
 				@include max(ti) {
 					min-height: auto;
 				}
@@ -673,7 +696,7 @@
 		#{$parent} {
 			&__card {
 				width: 278px;
-				min-height: 435px;
+				min-height: 480px;
 				@include max(ti) {
 					min-height: auto;
 				}
@@ -687,21 +710,11 @@
 		margin-left: -535px;
 
 		&::before {
-			bottom: 188px;
-			left: 203px;
-			height: 114px;
-			border-radius: 15px 15px 0 0;
+			display: none;
 		}
 
 		&::after {
-			position: absolute;
-			bottom: 188px;
-			left: 526px;
-			content: "";
-			width: 90px;
-			height: 114px;
-			border-radius: 15px 15px 0 0;
-			background-color: rgba(255, 255, 255, 0.8);
+			display: none;
 		}
 
 		#{$parent} {
@@ -711,8 +724,32 @@
 
 			&__card {
 				width: 701px;
-				height: 188px;
 				border-radius: 0 15px 15px 15px;
+				&::before {
+					position: absolute;
+				    content: "";
+				    width: 90px;
+				    border-radius: 15px;
+				    background-color: rgba(255, 255, 255, .8);
+					left: 0;
+					top: -136px;
+					z-index: 1;
+					height: 136px;
+					border-radius: 20px 20px 0 0;
+				}
+
+				&::after {
+					position: absolute;
+				    content: "";
+				    width: 90px;
+				    border-radius: 15px;
+				    background-color: rgba(255, 255, 255, .8);
+					left: 322px;
+					top: -136px;
+					z-index: 1;
+					height: 136px;
+					border-radius: 20px 20px 0 0;
+				}
 			}
 		}
 	}

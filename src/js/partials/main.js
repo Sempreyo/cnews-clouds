@@ -256,107 +256,163 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 	// Анимация прокрутки блоков истории
+	// Анимация прокрутки блоков истории
 	let horizontalTween2;
+
 	const animateHistory = (parent, parentContainer, parentScroll) => {
-		if (horizontalTween2) {
-			if (horizontalTween2.scrollTrigger) {
-				horizontalTween2.scrollTrigger.disable(false);
-				horizontalTween2.scrollTrigger.kill(true);
-			}
-			horizontalTween2.kill();
-			horizontalTween2 = undefined;
-		}
+	    if (horizontalTween2) {
+	        if (horizontalTween2.scrollTrigger) {
+	            horizontalTween2.scrollTrigger.disable(false);
+	            horizontalTween2.scrollTrigger.kill(true);
+	        }
+	        horizontalTween2.kill();
+	        horizontalTween2 = undefined;
+	    }
 
-		ScrollTrigger.getAll().forEach(st => {
-			if (st.trigger === parentContainer) {
-				st.kill(true);
-			}
-		});
+	    ScrollTrigger.getAll().forEach(st => {
+	        if (st.trigger === parentContainer) {
+	            st.kill(true);
+	        }
+	    });
 
-		const pinSpacer = parentContainer.closest('.pin-spacer');
-		if (pinSpacer) {
-			pinSpacer.parentNode.insertBefore(parentContainer, pinSpacer);
-			pinSpacer.parentNode.removeChild(pinSpacer);
-		}
+	    const pinSpacer = parentContainer.closest('.pin-spacer');
+	    if (pinSpacer) {
+	        pinSpacer.parentNode.insertBefore(parentContainer, pinSpacer);
+	        pinSpacer.parentNode.removeChild(pinSpacer);
+	    }
 
-		// Сбрасываем стили, которые могли остаться от прошлых расчетов
-		gsap.set([parentContainer, parentScroll], { clearProps: "all" });
-		window.scrollTo(0, 0);
+	    // Сбрасываем стили, которые могли остаться от прошлых расчетов
+	    gsap.set([parentContainer, parentScroll], { clearProps: "all" });
+	    window.scrollTo(0, 0);
 
-		setTimeout(() => {
-			// Временно обнуляем позицию ленты для точного замера координат
-			gsap.set(parentScroll, { x: 0, width: "max-content" });
+	    setTimeout(() => {
+	        // Временно обнуляем позицию ленты для точного замера координат
+	        gsap.set(parentScroll, { x: 0, width: "max-content" });
+	        const steps = parentContainer.querySelectorAll('.history__title, .history__items');
+	        if (steps.length === 0) return;
 
-			const steps = parentContainer.querySelectorAll('.history__title, .history__items');
+	        // Находим первый и последний элементы
+	        const firstStep = steps[0];
+	        const lastStep = steps[steps.length - 1];
 
-			if (steps.length === 0) return;
+	        // БЕЗОПАСНЫЙ ЗАМЕР ДЛЯ FIREFOX (без использования getBoundingClientRect)
+	        const firstLeft = firstStep.offsetLeft;
+	        const lastRight = lastStep.offsetLeft + lastStep.offsetWidth;
 
-			// Находим первый и последний элементы
-			const firstStep = steps[0];
-			const lastStep = steps[steps.length - 1];
+	        // Базовая ширина от левого края первой карточки до правого края последней
+	        let parentScrollWidth = lastRight - firstLeft;
 
-			// БЕЗОПАСНЫЙ ЗАМЕР ДЛЯ FIREFOX (без использования getBoundingClientRect)
-			const firstLeft = firstStep.offsetLeft;
-			const lastRight = lastStep.offsetLeft + lastStep.offsetWidth;
+	        // Добавляем запас в конце ленты
+	        const safetyPadding = 350;
+	        parentScrollWidth += safetyPadding;
 
-			// Базовая ширина от левого края первой карточки до правого края последней
-			let parentScrollWidth = lastRight - firstLeft;
+	        const parentWidth = parent.offsetWidth;
+	        const scrollDistance = parentScrollWidth - parentWidth;
 
-			// Добавляем запас в конце ленты
-			const safetyPadding = 350;
-			parentScrollWidth += safetyPadding;
+	        let isMenuVisible = false;
+	        const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
+	        const tabs = tabsWrapper.querySelector(".tabs");
 
-			const parentWidth = parent.offsetWidth;
-			const scrollDistance = parentScrollWidth - parentWidth;
-			let isMenuVisible = false;
-			const tabsWrapper = document.querySelector(".hero__tabs-wrapper");
-			const tabs = tabsWrapper.querySelector(".tabs");
+	        // НАХОДИМ КНОПКИ УПРАВЛЕНИЯ
+	        const startBtn = parentContainer.querySelector('.history__controlbtn--start');
+	        const endBtn = parentContainer.querySelector('.history__controlbtn--end');
 
-			gsap.set(parentScroll, {
-				width: parentScrollWidth,
-				x: 0
-			});
+	        // Изначально кнопка "В начало" скрыта (нет класса active), а "В конец" — активна
+	        if (startBtn) startBtn.classList.remove("active");
+	        if (endBtn) endBtn.classList.add("active");
 
-			horizontalTween2 = gsap.to(parentScroll, {
-				x: -scrollDistance,
-				ease: "power1.inOut",
-				scrollTrigger: {
-					trigger: parentContainer,
-					start: `${-(tabs.offsetHeight + 60)} top`,
-					pin: true,
-					scrub: 3,
-					anticipatePin: 1,
-					invalidateOnRefresh: true,
-					fastScrollEnd: true,
-					end: `+=${scrollDistance}`, // Статичная строка для исключения багов при рефреше
-					onEnter: () => {
-						const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
+	        gsap.set(parentScroll, {
+	            width: parentScrollWidth,
+	            x: 0
+	        });
 
-						if (menuItemDynamics) {
-							const svgIcon = menuItemDynamics.querySelector("svg");
-							
-							if (svgIcon) {
-								svgIcon.style.transform = "translateX(-50%) rotate(180deg)";
-							}
-						}
-					},
-					onUpdate: (self) => {
-						const isInRange = self.progress > 0 && self.progress < 1;
+	        horizontalTween2 = gsap.to(parentScroll, {
+	            x: -scrollDistance,
+	            ease: "power1.inOut",
+	            scrollTrigger: {
+	                trigger: parentContainer,
+	                start: `${-(tabs.offsetHeight + 60)} top`,
+	                pin: true,
+	                scrub: 3,
+	                anticipatePin: 1,
+	                invalidateOnRefresh: true,
+	                fastScrollEnd: true,
+	                end: `+=${scrollDistance}`, // Статичная строка для исключения багов при рефреше
+	                onEnter: () => {
+	                    const menuItemDynamics = document.querySelector(".hero__menu-item--dynamics");
+	                    if (menuItemDynamics) {
+	                        const svgIcon = menuItemDynamics.querySelector("svg");
+	                        if (svgIcon) {
+	                            svgIcon.style.transform = "translateX(-50%) rotate(180deg)";
+	                        }
+	                    }
+	                },
+	                onUpdate: (self) => {
+	                    const isInRange = self.progress > 0 && self.progress < 1;
+	                    if (isInRange && !isMenuVisible) {
+	                        menuItemHistory.classList.add("hidden");
+	                        menuItemTimeline.classList.remove("hidden");
+	                    } else if (!isInRange && isMenuVisible) {
+	                        menuItemHistory.classList.remove("hidden");
+	                        menuItemTimeline.classList.add("hidden");
+	                    }
 
-						if (isInRange && !isMenuVisible) {
-							menuItemHistory.classList.add("hidden");
-							menuItemTimeline.classList.remove("hidden");
-						} else if (!isInRange && isMenuVisible) {
-							menuItemHistory.classList.remove("hidden");
-							menuItemTimeline.classList.add("hidden");
-						}
-					}
-				}
-			});
+	                    
+	                    // Вычисляем, сколько пикселей прокручено внутри горизонтального блока
+	                    const currentScrollPixels = self.progress * scrollDistance;
 
-			ScrollTrigger.refresh(true);
-		}, 1100);
-	}
+	                    // Кнопка "В начало": active появляется после 200px скролла
+	                    if (startBtn) {
+	                        if (currentScrollPixels >= 400) {
+	                            startBtn.classList.add("active");
+	                        } else {
+	                            startBtn.classList.remove("active");
+	                        }
+	                    }
+
+	                    // Кнопка "В конец": active исчезает, если до конца осталось меньше 200px
+	                    if (endBtn) {
+	                        const remainingScrollPixels = scrollDistance - currentScrollPixels;
+	                        if (remainingScrollPixels <= 400) {
+	                            endBtn.classList.remove("active");
+	                        } else {
+	                            endBtn.classList.add("active");
+	                        }
+	                    }
+	                }
+	            }
+	        });
+
+	        // --- ЛОГИКА КЛИКА ПО КНОПКАМ (ПЕРЕМОТКА) ---
+	        const triggerInstance = horizontalTween2.scrollTrigger;
+
+	        if (startBtn && triggerInstance) {
+	            startBtn.onclick = (e) => {
+	                e.preventDefault();
+	                gsap.to(window, {
+	                    scrollTo: triggerInstance.start,
+	                    duration: 1.5,
+	                    ease: "power2.out"
+	                });
+	            };
+	        }
+
+	        if (endBtn && triggerInstance) {
+	            endBtn.onclick = (e) => {
+	                e.preventDefault();
+	                gsap.to(window, {
+	                    scrollTo: triggerInstance.end,
+	                    duration: 1.5,
+	                    ease: "power2.out"
+	                });
+	            };
+	        }
+
+	        ScrollTrigger.refresh(true);
+	    }, 1100);
+	};
+
+
 
 	// Анимация прокрутки тенденций
 	let horizontalObserver;

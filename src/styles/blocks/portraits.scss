@@ -87,7 +87,7 @@
 		}
 
 		&--12 {
-			top: 179px;
+			top: 178px;
 			left: 407px;
 			z-index: 1;
 			min-width: 55px;
@@ -140,8 +140,8 @@
 		}
 
 		&--19 {
-			top: 276px;
-			left: 231px;
+			top: 302px;
+    		left: 229px;
 			z-index: 1;
 			min-width: 60px;
 			height: 60px;
@@ -178,9 +178,10 @@
 
 		&--24 {
 			top: 192px;
-			left: 421px;
-			min-width: 105px;
-			height: 104px;
+		    left: 437px;
+		    min-width: 96px;
+		    height: 95px;
+		    object-fit: cover;
 		}
 
 		&--25 {
@@ -234,6 +235,20 @@
 			width: 95px;
 		    height: 95px;
 		    min-width: 95px;
+		}
+
+		&--32 {
+			top: 277px;
+		    left: 587px;
+		    min-width: 48px;
+		    height: 49px;
+		}
+
+		&--33 {
+			top: 130px;
+		    left: 587px;
+		    min-width: 52px;
+		    height: 52px;
 		}
 	}
 }
