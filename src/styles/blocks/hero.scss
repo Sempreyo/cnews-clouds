@@ -202,8 +202,12 @@
 	}
 
 	&__year {
+		width: 321px;
 		margin-left: -33px;
 		margin-bottom: -26px;
+		@include max(1080) {
+			width:231px;
+ 		}
 	}
 
 	&__year-2 {
@@ -281,7 +285,7 @@
 	&__portraits {
 		position: absolute;
 		top: -82px;
-		left: 52.5%;
+		left: calc(50% + 40px);
 
 		@include max(1448) {
 			top: -50px;
