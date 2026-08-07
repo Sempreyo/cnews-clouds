@@ -283,21 +283,27 @@
 		top: -82px;
 		left: 52.5%;
 
-		@include max(d) {
+		@include max(1448) {
+			top: -50px;
+			left: 640px;
+			transform: scale(0.9);
+		}
+
+		@include max(1420) {
 			top: -50px;
 			left: 640px;
 			transform: scale(0.8);
 		}
 
-		@include max(1120) {
+		@include max(1220) {
 			top: -25px;
 			left: 640px;
 			transform: scale(0.6);
 		}
 
-		@include max(1020) {
+		@include max(1080) {
 			top: -115px;
-			left: 174px;
+			left: 225px;
 		}
 
 		@include max(tl) {
@@ -307,16 +313,16 @@
 
 		@include max(ti) {
 			top: -125px;
-			transform: scale(0.5);
+			transform: scale(0.45);
 		}
 
 		@include max(420) {
-			transform: scale(0.4);
+			transform: scale(0.35);
 		}
 
 		@include max(360) {
 			top: -100px;
-			transform: scale(0.35);
+			transform: scale(0.3);
 		}
 	}
 
