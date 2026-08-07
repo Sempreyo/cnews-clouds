@@ -153,12 +153,12 @@
 		}
 		&-block{
 			display: flex;
-			flex:0 0 0;
 			flex-wrap: wrap;
 			gap:16px;
 			@include max(tl) {
 				flex-direction: column-reverse;
 				gap:5px;
+				max-width: 150px;
 			}
 		}
 		&-title{
