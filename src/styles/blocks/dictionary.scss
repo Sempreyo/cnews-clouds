@@ -2,11 +2,95 @@
 	position: relative;
 	opacity: 0;
 	pointer-events: none;
-	max-width: 580px;
+	max-width: calc(100% - 940px);
 	transition: 0.3s ease;
-
-	@include max(ti) {
+	@include max(1380) {
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		left: 0;
+		right: 100px;
 		max-width: 100%;
+		background-color: #0076e4;
+		border-radius: 30px;
+	}
+
+	&__btn{
+	  display: none;
+		padding: 15px 20px;
+		white-space: nowrap;
+	    color: white;
+	    background-color: transparent;
+	    border: 1px solid #fff;
+	    border-radius: 55px;
+	    z-index: 4;
+	    cursor: pointer;
+	    text-transform: uppercase;
+	    font-size: 16px;
+	    @include max(ti) {
+	    	display: none!important;
+	    }
+
+		&.active{
+			position: absolute;
+			width: 48px;
+		    height: 30px;
+		    right: 0;
+		    top: 0;
+		    bottom: 0;
+		    margin: auto;
+		    border-radius: 0;
+		    border:none;
+		    padding: 0;
+			.dictionary__btn-title{
+				display: none;
+			}
+			.dictionary__btn-lines{
+				position: relative;
+				display: block;
+				width: 100%;
+				  height: 5px;
+				  background-color: #ff7300;
+				  transition: all 0.3s;
+				  backface-visibility: hidden;
+				  border-radius: 2px;
+			  	&:after,
+			  	&:before {
+				  content: "";
+				  width: 100%;
+				  height: 5px;
+				  background-color: #ff7300;
+				  transition: all 0.3s;
+				  backface-visibility: hidden;
+				  border-radius: 2px;
+				  position: absolute;
+				  left: 0;
+				  top: -9px;
+				}
+
+				&:after{
+					top:9px
+				}
+				opacity: 1;
+				visibility: visible;
+				background-color: transparent;
+				&:before {
+				  transform: rotate(45deg) translate(5px, 5px);
+				}
+				&:after {
+				  transform: rotate(-45deg) translate(7px, -8px);
+				}
+			}
+
+			+ .dictionary{
+				opacity: 1;
+				visibility: visible;
+				.dictionary__label{
+					display: none;
+				}
+			}
+
+		}
 	}
 
 	&__label {

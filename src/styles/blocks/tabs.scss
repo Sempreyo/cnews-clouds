@@ -91,7 +91,7 @@
 			padding: 0;
 		}
 
-		@include max(tl) {
+		@include max(ti) {
 			flex-wrap: wrap;
 		}
 	}
@@ -106,6 +106,13 @@
 		&--popup {
 			span {
 				font-size: 17px;
+				@include max(tl) {
+					font-size: 14px;
+				}
+				@include max(ti) {
+					font-size: 17px;
+				}
+
 			}
 		}
 	}

@@ -468,6 +468,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		}, 400);
 	}
 
+	const dictionaryBtn = document.querySelector('.dictionary__btn');
+
+	// Навешиваем событие клика
+	dictionaryBtn.addEventListener('click', function() {
+	  // Переключаем класс active у самой кнопки
+	  this.classList.toggle('active');
+	});
+
 	// Навигация по прокручиваемым блокам
 	const menu = document.querySelector(".hero__menu");
     const menuItemHistory = menu.querySelector(".hero__menu-item--history");
