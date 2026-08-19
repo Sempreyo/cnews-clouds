@@ -260,13 +260,27 @@
 	&--2 {
 		#{$parent} {
 			&__card {
-				gap: 85px;
-				width: 381px;
+				width: 483px;
+				border-radius: 15px 15px 15px 0;
+			}
+			&__text{
+				&:before{
+					position: absolute;
+				    content: "";
+				    width: 110px;
+				    border-radius: 15px;
+				    background-color: rgba(255, 255, 255, .8);
+				    left: 0;
+				    bottom: -47px;
+				    z-index: 1;
+				    height: 47px;
+				    border-radius: 0 0 20px 20px;
+				    @include max(ti) {
+				    	display: none;
+				    }
+				}
 			}
 
-			&__image {
-				height: 178px;
-			}
 		}
 	}
 
@@ -300,6 +314,36 @@
 				right: 30px;
 				padding: 0 !important;
 				width: 393px;
+				height: 244px;
+			}
+
+			&__image {
+				border-radius: 15px;
+			}
+		}
+	}
+
+	&--iaas2019 {
+		justify-content: flex-start;
+
+		#{$parent} {
+			&__card {
+				width: 875px;
+				gap: 77px;
+			}
+
+			&__text {
+				&:first-child {
+					max-width: 522px;
+				}
+			}
+
+			&__image-wrapper {
+				position: absolute;
+				top: -50px;
+				right: 30px;
+				padding: 0 !important;
+				width: 283px;
 				height: 244px;
 			}
 
@@ -344,9 +388,9 @@
 				    width: 90px;
 				    background-color: rgba(255, 255, 255, .8);
 					right: 0;
-					top: -115px;
+					top: -95px;
 					z-index: 1;
-					height: 115px;
+					height: 95px;
 					border-radius: 15px 15px 0 0;
 				}
 			}
@@ -412,6 +456,41 @@
 					top: -106px;
 					z-index: 1;
 					height: 106px;
+					border-radius: 20px 20px 0 0;
+				}
+			}
+		}
+	}
+
+	&--iaas2011 {
+		justify-content: flex-end;
+		height: 566px;
+    	margin-left: -512px;
+    	gap: 13px;
+		&::before{
+			display: none;
+		}
+
+		#{$parent} {
+			&__top {
+				padding-left: 130px;
+    			max-width: 410px;
+			}
+
+			&__card {
+				width: 483px;
+				gap: 20px;
+				border-radius: 0 18px 18px 18px;
+				&::before {
+					position: absolute;
+				    content: "";
+				    width: 110px;
+				    border-radius: 15px;
+				    background-color: rgba(255, 255, 255, .8);
+					left: 0;
+					top: -77px;
+					z-index: 1;
+					height: 77px;
 					border-radius: 20px 20px 0 0;
 				}
 			}
