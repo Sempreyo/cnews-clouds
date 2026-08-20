@@ -5,7 +5,7 @@
 	min-height: 100vh;
 	overflow: hidden;
 	background: radial-gradient(59% 90% at 46% 72%, #72b1ff 0%, #0067e5 100%) #d9d9d9;
-	padding: 127px 0 0;
+	padding: 127px 0;
 
 	@include max(tl) {
 		padding: 127px 0 60px;
