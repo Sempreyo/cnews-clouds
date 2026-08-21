@@ -861,22 +861,25 @@
 				@include max(ti) {
 					display: block;
 				}
+
+				.timeline-step__title{
+					@include max(ti) {
+				    	display: none;
+				    }
+				}
 			}
 
 			&__text {
 				max-width: 1035px;
 			    position: relative;
 			    z-index: 2;
-
-			    @include max(ti) {
-			    	margin-top: 0;
-			    }
 			}
 
 			&__title{
 				color:#3585D9;
 				@include max(ti) {
-					display: none;
+					color:white;
+					display: blcok;
 				}
 			}
 
@@ -885,12 +888,17 @@
 				height: 100%;
 
 				@include max(ti) {
-					display: none;
+					height: 200px;
 				}
 			}
 
 			&__image {
 				border-radius: 0;
+
+				@include max(ti) {
+					border-radius: 15px;
+					object-position: 15%;
+				}
 			}
 		}
 	}
